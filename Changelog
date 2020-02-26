@@ -1,0 +1,18 @@
+## Change log
+# Script MLua_Test.sh
+Création du script MLua_Test.sh pour automatiser la copie sur la carte SD
+# Script MLua_PIC.sh
+Gestion de la présence d'une carte SD montée
+Amélioration des contrôles
+Récupération des log
+# eclipse_OZ.lua
+Amélioration des log avec l'ajout de l'heure en début de ligne
+Création de la fonction boucle avec traitement du mirroir et gestion de la sortie
+Factorisation de la configuration du MLU
+Fonction de lecture du script
+Fonction de conversion hh:mm:ss en secondes
+Chargement des variables
+# SOLARECL.TXT
+Création du fichier script de déroulement des actions
+C'est un fichier CSV avec comme séparateur le ; et le # pour commenter
+Lire l'entête pour la signification des colonnes

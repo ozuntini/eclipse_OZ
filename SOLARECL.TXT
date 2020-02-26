@@ -1,0 +1,14 @@
+# SOLARECL.TXT
+# Script pour eclipse_OZ.lua
+# Script de test
+# ! Pas de ligne vide mettre un # devant
+# Action = Boucle (suite de photo identiques) ou Photo (photo unique)       | Hd Md Sd = Heure:Minute:Seconde de début de la boucle ou de la Photo
+# Hf Mf Sf = Heure:Minute:Seconde de fin de la boucle                       | Interval = Délais en seconde entre 2 photo dans un boucle
+# Aperture = Ouverture, choisir des valeurs compatibles avec le boitier     | ISO = Sensibilité, choisir des valeurs compatibles avec le boitier
+# ShutterSpeed = Vitesse d'obturation en seconde                            | MLUDelay = Temps d'attente une fois le mirroir relevé           
+#Action;Hd;Md;Sd;Hf;Mf;Sf;Interval;Aperture;ISO;ShutterSpeed;MLUDelay
+Boucle;22;01;00;22;02;00;20;8;800;0.0005;500
+Boucle;22;04;00;22;05;00;10;8;800;0.008;500
+Boucle;22;06;00;22;08;00;10;8;200;0.0005;0
+#
+Photo;22;08;05;0;0;0;0;8;1600;1;500
