@@ -1,7 +1,11 @@
-## Change log 26/02/2020
+## Changelog 27/02/2020
+Chargement et interprétation des lignes pour lancement des cycles.
+Affichage d'une box Waiting pendant les attentes.
+
+## Changelog 26/02/2020
 Corrections cosmétiques
 
-## Change log 26/02/2020
+## Changelog 26/02/2020
 # Script MLua_Test.sh
 Création du script MLua_Test.sh pour automatiser la copie sur la carte SD
 # Script MLua_PIC.sh

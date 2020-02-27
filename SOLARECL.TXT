@@ -7,8 +7,8 @@
 # Aperture = Ouverture, choisir des valeurs compatibles avec le boitier     | ISO = Sensibilité, choisir des valeurs compatibles avec le boitier
 # ShutterSpeed = Vitesse d'obturation en seconde                            | MLUDelay = Temps d'attente une fois le mirroir relevé           
 #Action;Hd;Md;Sd;Hf;Mf;Sf;Interval;Aperture;ISO;ShutterSpeed;MLUDelay
-Boucle;22;01;00;22;02;00;20;8;800;0.0005;500
-Boucle;22;04;00;22;05;00;10;8;800;0.008;500
-Boucle;22;06;00;22;08;00;10;8;200;0.0005;0
+Boucle;23;40;00;23;41;00;20;8;800;0.0005;500
+Boucle;23;41;30;23;42;30;10;8;800;0.008;500
+Boucle;23;43;00;23;44;00;10;8;200;0.0005;0
 #
-Photo;22;08;05;0;0;0;0;8;1600;1;500
+Photo;23;59;05;0;0;0;0;8;1600;1;500

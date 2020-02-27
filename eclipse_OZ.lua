@@ -25,10 +25,10 @@ setAperture = 1
 
 -- Mode test
 -- Le mode test ne déclenche pas dans ce cas il faut que la valeur soit 1
-testMode = 0
+testMode = 1
 
 -- Log to stdout and optionally to a file
-function log (s, ...)
+function log(s, ...)
 	local str = string.format (s, ...)
 	str = str .. "\n"
 	if (logToFile == 0 or loggingFile == nil)
@@ -41,7 +41,7 @@ function log (s, ...)
 end
 
 -- Open log file
-function log_start ()
+function log_start()
 	if (logToFile ~= 0)
 	then
 		local cur_time = dryos.date
@@ -54,7 +54,7 @@ function log_start ()
 end
 
 -- Close log file
-function log_stop ()
+function log_stop()
 	if (logToFile ~= 0)
 	then
 		print (string.format ("Close log file"))
@@ -63,14 +63,14 @@ function log_stop ()
 end
 
 -- Get the current time (in seconds) from the camera's clock.
-function get_cur_secs ()
+function get_cur_secs()
 	local cur_time = dryos.date
 	local cur_secs = (cur_time.hour * 3600 + cur_time.min * 60 + cur_time.sec)
 	return cur_secs
 end
 
 -- Take a time variable expressed in seconds (which is what all times are stored as) and convert it back to HH:MM:SS
-function pretty_time (time_secs)
+function pretty_time(time_secs)
 	local text_time = ""
 	local hrs = 0
 	local mins = 0
@@ -89,7 +89,7 @@ function convert_second(hrs, mins, secs)
 end
 
 -- Take a shutter speed expressed in (fractional) seconds and convert it to 1/x.
-function pretty_shutter (shutter_speed)
+function pretty_shutter(shutter_speed)
 	local text_time = ""
 	if (shutter_speed >= 1.0)
 	then
@@ -101,7 +101,7 @@ function pretty_shutter (shutter_speed)
 end
 
 -- Mirror lockup function
-function set_mirror_lockup (mirrorLockupDelay)
+function set_mirror_lockup(mirrorLockupDelay)
     if (mirrorLockupDelay > 0)
     then
         menu.set("Mirror Lockup", "MLU mode", "Handheld")
@@ -116,7 +116,7 @@ function set_mirror_lockup (mirrorLockupDelay)
 end
 
 -- Read and parse a script function
-function read_script (directory, filename)
+function read_script(directory, filename)
     -- Ouverture du fichier directory/filename et l'analyse pour charger un tableau avec pour chaque lignes une action à réaliser
     -- Le fichier filename est un CSV avec comme séparateur le ; et # pour commenter les lignes
     -- Le tableau est retourné par la fonction
@@ -153,7 +153,7 @@ function read_script (directory, filename)
 end
 
 -- Take a picture function
-function take_shoot (iso, aperture, shutter_speed, mluDelay) -- mluDelay = delay to wait after mirror lockup in ms
+function take_shoot(iso, aperture, shutter_speed, mluDelay) -- mluDelay = delay to wait after mirror lockup in ms
     camera.iso.value = iso
     camera.aperture.value = aperture
     camera.shutter.value = shutter_speed
@@ -180,7 +180,7 @@ function take_shoot (iso, aperture, shutter_speed, mluDelay) -- mluDelay = delay
 end
 
 -- Boucle de prises de vue (hFin et intervalle en seconde)
-function boucle (hFin, intervalle, iso, aperture, shutter_speed, mluDelay)
+function boucle(hFin, intervalle, iso, aperture, shutter_speed, mluDelay)
     log ("%s - Boucle: hFin: %s Intervalle: %s s", pretty_time(get_cur_secs()), pretty_time(hFin), intervalle)
     local shootTime = get_cur_secs()
     while (get_cur_secs() <= hFin) and ((shootTime + intervalle) <= hFin)
@@ -218,28 +218,45 @@ function main()
         local action = value[1]
         local timeStart = convert_second(value[2], value[3], value[4])
         local timeEnd = convert_second(value[5], value[6], value[7])
-        local interval = value[8]
-        local aperture = value[9]
-        local iso = value[10]
-        local shutterSpeed = value[11]
-        local mluDelay = value[12]
-        log ("%s - Action: %s TimeStart: %ss TimeEnd: %ss Interval: %ss Aperture %s ISO %s ShutterSpeed: %ss MluDelay: %ss",
-            pretty_time(get_cur_secs()), action, timeStart, timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
-        
-        
+        local interval = tonumber(value[8])
+        local aperture = tonumber(value[9])
+        local iso = tonumber(value[10])
+        local shutterSpeed = tonumber(value[11])
+        local mluDelay = tonumber(value[12])
+        log ("%s - Action: %s TimeStart: %s:%s:%s/%ss TimeEnd: %s:%s:%s/%ss Interval: %ss Aperture %s ISO %s ShutterSpeed: %ss MluDelay: %ss",pretty_time(get_cur_secs()), 
+        action, value[2], value[3], value[4], timeStart, value[5], value[6], value[7], timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
+        -- Les paramètres sont chargés on gère le mirror lockup
+        set_mirror_lockup(mluDelay)
 
+        -- On boucle tant que nous ne sommes pas dans le bon créneau horaire
+        local counter = 0
+        while (get_cur_secs() < timeStart)
+        do  -- Pas encore l'heure on attend 0.5 seconde
+            counter = counter +1
+            if (counter >= 40) -- Affiche Waiting toutes les 20s
+            then
+                display.notify_box("Waiting !", 2000)
+                counter = 0
+            end
+            msleep(500)
+        end
+        if (action == "Boucle") -- Traitement d'une ligne d'action Boucle
+        then
+            if (get_cur_secs() <= timeEnd ) -- On vérifie que l'on ne soit pas après l'heure
+            then
+                -- Lancement de la boucle de prises de vues
+                boucle(timeEnd, interval, iso, aperture, shutterSpeed, mluDelay)
+            else
+                log ("%s - Trop tard ! TimeEnd: %ss soit %s", pretty_time(get_cur_secs()), timeEnd, pretty_time(timeEnd))
+            end
+        elseif (action == "Photo") -- Traitement d'une ligne de Photo
+        then
+            -- Lancement de la prises de vues
+            take_shoot(iso, aperture, shutterSpeed, mluDelay)
+        end
+        -- Ligne traitée on passe à la suivante
+        log ("%s - Ligne %s traitée on passe à la suivante.", pretty_time(get_cur_secs()), key)
     end
-
-
-    local Heure = 0
-    local mirrorLockupDelay = 0 -- Délais d'attente après le levé de mirroir en ms
-
-
-    -- set_mirror_lockup(mirrorLockupDelay)
-
-    -- Heure = get_cur_secs()
-
-    -- boucle((Heure + 10), 10, 400, 8, 0.0005, mirrorLockupDelay)
 
     print ("Press any key to exit.")
     key.wait()
