@@ -1,3 +1,13 @@
+## Changelog 29/02/2020
+#MLua_mount_imgSD
+Création d'un script de montage des images des cartes SD pour Qemu et de copie d'un fichier
+Ajout de commentaires dans les scripts MLua_PIC et MLua_Test
+# SOLARECL.TXT
+Modification des séparateurs utilisation de "," et ":" pour améliorer la lisibilité
+# eclipse_OZ.lua
+Modification de la fonction read_script pour prise en compte des séparateurs "," et ":"
+Passage en variable de la version du directory et du fichier de schedule.
+
 ## Changelog 27/02/2020
 Chargement et interprétation des lignes pour lancement des cycles.
 Affichage d'une box Waiting pendant les attentes.

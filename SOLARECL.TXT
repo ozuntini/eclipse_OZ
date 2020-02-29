@@ -5,10 +5,15 @@
 # Action = Boucle (suite de photo identiques) ou Photo (photo unique)       | Hd Md Sd = Heure:Minute:Seconde de début de la boucle ou de la Photo
 # Hf Mf Sf = Heure:Minute:Seconde de fin de la boucle                       | Interval = Délais en seconde entre 2 photo dans un boucle
 # Aperture = Ouverture, choisir des valeurs compatibles avec le boitier     | ISO = Sensibilité, choisir des valeurs compatibles avec le boitier
-# ShutterSpeed = Vitesse d'obturation en seconde                            | MLUDelay = Temps d'attente une fois le mirroir relevé           
-#Action;Hd;Md;Sd;Hf;Mf;Sf;Interval;Aperture;ISO;ShutterSpeed;MLUDelay
-Boucle;23;40;00;23;41;00;20;8;800;0.0005;500
-Boucle;23;41;30;23;42;30;10;8;800;0.008;500
-Boucle;23;43;00;23;44;00;10;8;200;0.0005;0
+# ShutterSpeed = Vitesse d'obturation en seconde                            | MLUDelay = Temps d'attente une fois le mirroir relevé en seconde    
+# Action,Hd:Md:Sd,Hf:Mf:Sf,Interval,Aperture,ISO,ShutterSpeed,MLUDelay
+Boucle,21:20:00,21:22:00,20,8,800,0.0005,500
+Boucle,21:22:05,21:22:35,1,8,200,0.0005,0
 #
-Photo;23;59;05;0;0;0;0;8;1600;1;500
+Photo,21:22:40,-,-,-,-,4,1600,1,500
+Photo,21:22:45,-,-,-,-,4,1600,2,500
+Photo,21:22:50,-,-,-,-,4,1600,3,500
+Photo,21:23:00,-,-,-,-,4,1600,0.5,500
+#
+Boucle,21:23:0,21:24:35,1,8,200,0.0005,0
+Boucle,21:25:0,21:30:00,20,8,800,0.0005,0

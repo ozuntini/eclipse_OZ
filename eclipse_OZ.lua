@@ -1,5 +1,5 @@
 -- Eclipse Magic Lantern
--- Version 1.0
+Version = "1.0"
 -- Exécution d'un cycle de photos pour suivre une éclipse
 -- Adapté du script eclipse_magic de Brian Greenberg, grnbrg@grnbrg.org.
 --		http://www.grnbrg.org/
@@ -15,39 +15,38 @@
 require ("logger")
 
 -- Activation du mode log
-logToFile = 1
-loggingFile = nil
-
--- Choix de l'ouverture
--- Si l'ouverture est pilotée par le boitier (téléobjecitf) la valeur doit être 1
--- Si l'ouverture est fixe (téléscope) la valeur doit être 0
-setAperture = 1
+LogToFile = 1
+LoggingFile = nil
 
 -- Mode test
 -- Le mode test ne déclenche pas dans ce cas il faut que la valeur soit 1
-testMode = 1
+TestMode = 1
+
+-- Répertoire et Nom du script de schedule
+Directory = "ML/SCRIPTS/"
+Filename = "SOLARECL.TXT"
 
 -- Log to stdout and optionally to a file
 function log(s, ...)
 	local str = string.format (s, ...)
 	str = str .. "\n"
-	if (logToFile == 0 or loggingFile == nil)
+	if (LogToFile == 0 or LoggingFile == nil)
 	then
 		io.write (str)
 	else
-		loggingFile:write (str)
+		LoggingFile:write (str)
 	end
 	return
 end
 
 -- Open log file
 function log_start()
-	if (logToFile ~= 0)
+	if (LogToFile ~= 0)
 	then
 		local cur_time = dryos.date
 		local filename = string.format("eclipse.log")
 		print (string.format ("Open log file %s", filename))
-		loggingFile = logger (filename)
+		LoggingFile = logger (filename)
 	else
 		print (string.format ("Logging not configured"))
 	end
@@ -55,10 +54,10 @@ end
 
 -- Close log file
 function log_stop()
-	if (logToFile ~= 0)
+	if (LogToFile ~= 0)
 	then
 		print (string.format ("Close log file"))
-		loggingFile:close ()
+		LoggingFile:close ()
 	end
 end
 
@@ -120,7 +119,7 @@ function read_script(directory, filename)
     -- Ouverture du fichier directory/filename et l'analyse pour charger un tableau avec pour chaque lignes une action à réaliser
     -- Le fichier filename est un CSV avec comme séparateur le ; et # pour commenter les lignes
     -- Le tableau est retourné par la fonction
-    log ("%s - Lecture du script %s.", pretty_time(get_cur_secs()), directory..filename)
+    log ("%s - Script %s loading.", pretty_time(get_cur_secs()), directory..filename)
     local tableau = {}
     local mydir = dryos.directory(directory)    -- Liste l'ensemble des fichiers dans le répertoire
     local row = 1
@@ -138,7 +137,7 @@ function read_script(directory, filename)
                 then
                     tableau[row]={}
                     col = 1
-                    for word in string.gmatch(line, "[^;]+") -- Chargement du tableau avec les valeurs entre les ;
+                    for word in string.gmatch(line, "[^,^:]+") -- Chargement du tableau avec les valeurs entre les "," et les ":"
                     do
                         tableau[row][col] = word
                         col=col+1
@@ -148,7 +147,7 @@ function read_script(directory, filename)
             until (line == nil)
         end
     end
-    log ("%s - Tableau de %s lignes de %s colonnes chargé.", pretty_time(get_cur_secs()), row-1, col-1)
+    log ("%s - Table of %s lines and %s columns loaded.", pretty_time(get_cur_secs()), row-1, col-1)
     return tableau 
 end
 
@@ -164,7 +163,7 @@ function take_shoot(iso, aperture, shutter_speed, mluDelay) -- mluDelay = delay 
         log ("%s - Mirror Up",pretty_time(get_cur_secs()))
         msleep(mluDelay)
     end
-    if (testMode == 1)
+    if (TestMode == 1)
     then
         log ("%s - NO Shoot! ISO: %s Aperture: %s shutter: %s Test Mode",pretty_time(get_cur_secs()), tostring(camera.iso.value), tostring(camera.aperture.value), pretty_shutter(camera.shutter.value))
     else
@@ -192,7 +191,7 @@ function boucle(hFin, intervalle, iso, aperture, shutter_speed, mluDelay)
             msleep(500) -- Wait 1/4 s
         end
     end
-    log ("%s - Fin de boucle",pretty_time(get_cur_secs()))
+    log ("%s - End of boucle",pretty_time(get_cur_secs()))
 end
 
 -- Fonction principale de pilotage du processus de photograpie de l'éclispe
@@ -202,17 +201,18 @@ function main()
     console.clear()
 
     log_start () -- Open log file
+    log ("==> eclipse_OZ.lua - Version : %s", Version)
     log ("%s - Log begin.",pretty_time(get_cur_secs()))
-	print ("------------------------------------------------")
+	print ("---------------------------------------------------")
 	print (" Eclipse ML OZ")
 	print (" https://github.com/ozuntini/eclipse_OZ")
 	print (" Released under the GNU GPL")
-	print ("------------------------------------------------")
+	print ("---------------------------------------------------")
 
-    print ("Chargement du script")
-    local scheduleTable = read_script("ML/SCRIPTS/", "SOLARECL.TXT")
+    print ("Script loading.")
+    local scheduleTable = read_script(Directory, Filename)
 
-    print ("Démarrage du cycle de photos")
+    print ("Start photos schedule.")
     for key,value in ipairs(scheduleTable)
     do  -- Chargement des parametres
         local action = value[1]
@@ -235,7 +235,7 @@ function main()
             counter = counter +1
             if (counter >= 40) -- Affiche Waiting toutes les 20s
             then
-                display.notify_box("Waiting !", 2000)
+                display.notify_box("Waiting "..(timeStart - get_cur_secs()), 2000)
                 counter = 0
             end
             msleep(500)
@@ -247,7 +247,7 @@ function main()
                 -- Lancement de la boucle de prises de vues
                 boucle(timeEnd, interval, iso, aperture, shutterSpeed, mluDelay)
             else
-                log ("%s - Trop tard ! TimeEnd: %ss soit %s", pretty_time(get_cur_secs()), timeEnd, pretty_time(timeEnd))
+                log ("%s - Too last ! TimeEnd: %ss soit %s", pretty_time(get_cur_secs()), timeEnd, pretty_time(timeEnd))
             end
         elseif (action == "Photo") -- Traitement d'une ligne de Photo
         then
@@ -255,7 +255,7 @@ function main()
             take_shoot(iso, aperture, shutterSpeed, mluDelay)
         end
         -- Ligne traitée on passe à la suivante
-        log ("%s - Ligne %s traitée on passe à la suivante.", pretty_time(get_cur_secs()), key)
+        log ("%s - Line %s finish go to the next line.", pretty_time(get_cur_secs()), key)
     end
 
     print ("Press any key to exit.")

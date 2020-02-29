@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#Script de copie du script Lua sur les pseudo SD Qemu et lancement du virtualiseur
 
 repQemu="/Users/olivierzuntini/Documents/Projects/qemu-eos"
 

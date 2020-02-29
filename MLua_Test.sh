@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#Copie du fichier sur la carte SD et démontage de celle-ci
 
 if [ "$1" == "" ] || [ -d "$1" ]; then
     echo "usage: MLua_Test.sh Nom_du_script"

@@ -39,7 +39,6 @@ echo "-> Fermeture des cartes 1 et 2"
 hdiutil detach "/Volumes/EOS_DIGITAL"
 hdiutil detach "/Volumes/EOS_DIGITA1"
 
-
 echo "-> Retour sur le répertoire initial"
 cd -
 
