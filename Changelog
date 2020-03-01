@@ -1,3 +1,8 @@
+## Changelog 01/02/2020
+#Readme.md
+Description du fichier de programmation.
+Documentation sur le mode test et le fichier de log.
+
 ## Changelog 29/02/2020
 #MLua_mount_imgSD
 Création d'un script de montage des images des cartes SD pour Qemu et de copie d'un fichier

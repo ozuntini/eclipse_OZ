@@ -1,4 +1,4 @@
-# eclipse_OZ
+# eclipse_OZ.lua
 ## Eclipse Magic Lantern  
 
 Exécution d'un cycle de photos pour suivre une éclipse totale de Soleil.  
@@ -7,13 +7,14 @@ grnbrg@grnbrg.org http://www.grnbrg.org/
 
 Préparation pour l'éclipse du 14 décembre 2020 au Chili ou Argentine.  
 Qualifié avec un Canon 6D.  
-## Magic Lantern
 
+## Magic Lantern
 Installer Magic Lantern sur votre boitier.  
 https://www.magiclantern.fm/index.html  
 Attention ! Il faut activer le module lua  "Lua scripting" dans le menu Modules de MagicLantern.  
 ![Menu Modules](./images/Modules.png)  
 Copier le script eclipse_OZ.lua dans le répertoire ML/SCRIPTS de la carte SD ainsi que le descriptif de la séquence, SOLARECL.TXT.
+
 ## Descriptif de la séquence
 La séquence de photos est décrite dans un fichier texte SOLARECL.TXT.  
 Chaque séquence est décrite sur une ligne composée de paramètres séparés par une virgule "," ou un double point ":".
@@ -21,9 +22,12 @@ Il faut respecter les règles suivantes
 * Pas de ligne vide
 * \# pour commenter une ligne
 * Les séquences doivent se suivre temporellement. Le fichier n'est lu que dans un sens. 
+
 ### Syntaxe
 Chaque ligne décrit une séquence de la manière suivante :
+
 `Action,Hd:Md:Sd,Hf:Mf:Sf,Interval,Aperture,ISO,ShutterSpeed,MLUDelay`
+
 Position|Nom|Valeur|Description
 :---:|:---:|:---:|:---
 1|Action|Boucle ou Photo|Suite de photos identiques ou photo unique
@@ -41,13 +45,14 @@ Position|Nom|Valeur|Description
 
 (*) Uniquement utilisé par l'action "Boucle"  
 (**) Attention prendre des valeurs compatible avec votre équipement
+
 #### Exemples
 
 Série de 21:22:05 à 21:25:35, une photo toutes les 5s, Diaph=8, ISO=200, Vitesse 1/2000, pas de Mirror lockup.  
 >`Boucle,21:22:05,21:25:35,5,8,200,0.0005,0`  
 
 Ligne de commentaire.  
->`\# Commentaire`  
+>`# Commentaire`  
 
 Photo à 21:22:40, Diaph=4, ISO=1600, Vitesse 1, Mirror lockup avec 0,5s de délais.
 >`Photo,21:22:40,-,-,-,-,4,1600,1,500`
@@ -71,3 +76,16 @@ Si le boitier le permet il est possible d'utiliser le Mirrorlockup. Cela permet 
 Menu Shoot - Mirror Lockup  
 ![Menu Shoot-Mirror-Lockup](./images/Shoot-MirrorLockup.png)  
 La configuration MLU Mirror Lockup est piloté par le script mais il est possible qu'elle ne soit pas acceptée. 
+
+# Configurations
+## Mode test
+Pour tester le script il est possible d'utiliser le mode Test. Ce mode déroule le script normalement mais ne déclenche pas les photos.  
+Pour activer ce mode, modifier la variable TestMode dans le script __eclipse_OZ.lua__.
+>`TestMode = 1`
+
+0 => mode réel  
+1 => mode test
+
+# Fichier log
+A chaque lancement de séquence, un fichier log __ECLIPSE.LOG__ est créé à la racine de la carte SD.  
+Toutes les actions de la séquence sont loggés dans le fichier.
