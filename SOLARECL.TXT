@@ -1,4 +1,5 @@
 # SOLARECL.TXT
+# Version 2.0
 # Script pour eclipse_OZ.lua
 # Script de test
 # ! Pas de ligne vide mettre un # devant
