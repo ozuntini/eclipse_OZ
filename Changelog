@@ -1,9 +1,16 @@
+## Changelog 05/03/2020
+Mise en fonction de la gestion des actions.
+Création de la fonction read_config qui lit la ligne Config et en retire les valeurs Cx Max et TestMode.
+Création de la fonction convert_time qui retourne l'heure calculée en seconde en fonction de la référence, de l'opérande et de l'heure en entrée.
+Ajout d'une opérande pour le time Start et le time End.
+Complément d'informations sur la syntaxe du script d'exemple.
+Dans le Readme.md, ajout des nouvelles méthodes de calcul et de gestion des circonstances locales ainsi que la description de la ligne Config et un exemple de fichier log.
+
 ## Changelog 02/03/2020
 Création d'une branche dans Git.
 Evolution de la gestion du fichier de programmation des séquences.
 Afin de simplifier son utilisation on va modifier la gestion des heures de fin et de début avec la référence à C1,C2,Max,C3 et C4.
 Ajout d'une ligne de configuration avec la valeur du mode de test, les valeurs des C* et Max
-
 
 ## Changelog 01/03/2020
 #Readme.md

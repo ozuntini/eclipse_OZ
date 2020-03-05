@@ -20,7 +20,7 @@ LoggingFile = nil
 
 -- Mode test
 -- Le mode test ne déclenche pas dans ce cas il faut que la valeur soit 1
-TestMode = 1
+TestMode = 0
 
 -- Répertoire et Nom du script de schedule
 Directory = "ML/SCRIPTS/"
@@ -151,6 +151,44 @@ function read_script(directory, filename)
     return tableau 
 end
 
+-- Conversion temps relatif en absolu en fct de la référence de l'opérande et de l'heure en entrée => retourne une heure absolue en seconde
+function convert_time(reference, operation, timeIn, tableRef)
+    local timeRef = 0
+    local timeOut = 0
+    if (reference == "C1") then  -- Identification de la référence et chargement de la table de référence
+        timeRef = tableRef[1]
+    elseif (reference == "C2") then
+        timeRef = tableRef[2]
+    elseif (reference == "Max") then
+        timeRef = tableRef[3]
+    elseif (reference == "C3") then
+        timeRef = tableRef[4]
+    elseif (reference == "C4") then
+        timeRef = tableRef[5]
+    else
+        log ("%s - Erreur dans la déclaration de la ref : %s",pretty_time(get_cur_secs()), reference)
+    end
+    if (operation == "-")  -- En fonction de l'opérande et en tenant compte du passage à 0 heure
+    then
+        timeOut = timeRef - timeIn
+        if (timeOut < 0)
+        then
+            timeOut = 86400 + timeOut
+        end
+    elseif (operation == "+")
+    then
+        timeOut = timeRef + timeIn
+        if (timeOut > 86400)
+        then
+            timeOut = timeOut - 86400
+        end
+    else
+        log ("%s - Erreur dans la déclaration de l'opérande : %s",pretty_time(get_cur_secs()), operation)
+    end
+    log ("%s - Conversion : %s soit %s %s %s = %s soit %s",pretty_time(get_cur_secs()), reference, timeRef, operation, timeIn, timeOut, pretty_time(timeOut))
+    return timeOut
+end
+
 -- Take a picture function
 function take_shoot(iso, aperture, shutter_speed, mluDelay) -- mluDelay = delay to wait after mirror lockup in ms
     camera.iso.value = iso
@@ -194,6 +232,55 @@ function boucle(hFin, intervalle, iso, aperture, shutter_speed, mluDelay)
     log ("%s - End of boucle",pretty_time(get_cur_secs()))
 end
 
+-- Read Config line and set C1, C2, Max, C3, C4 and TestMode
+function read_config(lineValue)
+    local action = lineValue[1]
+    local timeC1 = convert_second(lineValue[2], lineValue[3], lineValue[4])
+    local timeC2 = convert_second(lineValue[5], lineValue[6], lineValue[7])
+    local timeMax = convert_second(lineValue[8], lineValue[9], lineValue[10])
+    local timeC3 = convert_second(lineValue[11], lineValue[12], lineValue[13])
+    local timeC4 = convert_second(lineValue[14], lineValue[15], lineValue[16])
+    local testMode = tonumber(lineValue[17])
+    log ("%s - Action: %s C1: %s:%s:%s/%ss C2: %s:%s:%s/%ss Max: %s:%s:%s/%ss C3: %s:%s:%s/%ss C4: %s:%s:%s/%ss TestMode: %s",pretty_time(get_cur_secs()), 
+    action, lineValue[2], lineValue[3], lineValue[4], timeC1, lineValue[5], lineValue[6], lineValue[7], timeC2, lineValue[8], lineValue[9], lineValue[10], timeMax,
+    lineValue[11], lineValue[12], lineValue[13], timeC3, lineValue[14], lineValue[15], lineValue[16], timeC4, testMode)
+    return timeC1, timeC2, timeMax, timeC3, timeC4, testMode
+end
+
+-- Read Boucle and Photo line and do action
+function do_action(action, timeStart, timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
+    
+    -- Les paramètres sont chargés on gère le mirror lockup
+    set_mirror_lockup(mluDelay)
+
+    -- On boucle tant que nous ne sommes pas dans le bon créneau horaire
+    local counter = 0
+    while (get_cur_secs() < timeStart)
+    do  -- Pas encore l'heure on attend 0.5 seconde
+        counter = counter +1
+        if (counter >= 40) -- Affiche Waiting toutes les 20s
+        then
+            display.notify_box("Waiting "..(timeStart - get_cur_secs()), 2000)
+            counter = 0
+        end
+        msleep(500)
+    end
+    if (action == "Boucle") -- Traitement d'une ligne d'action Boucle
+    then
+        if (get_cur_secs() <= timeEnd ) -- On vérifie que l'on ne soit pas après l'heure
+        then
+            -- Lancement de la boucle de prises de vues
+            boucle(timeEnd, interval, iso, aperture, shutterSpeed, mluDelay)
+        else
+            log ("%s - Too last ! TimeEnd: %ss soit %s", pretty_time(get_cur_secs()), timeEnd, pretty_time(timeEnd))
+        end
+    elseif (action == "Photo") -- Traitement d'une ligne de Photo
+    then
+        -- Lancement de la prises de vues
+        take_shoot(iso, aperture, shutterSpeed, mluDelay)
+    end
+end
+
 -- Fonction principale de pilotage du processus de photograpie de l'éclispe
 function main()
     menu.close()
@@ -213,46 +300,44 @@ function main()
     local scheduleTable = read_script(Directory, Filename)
 
     print ("Start photos schedule.")
+    local configTable = {}
     for key,value in ipairs(scheduleTable)
     do  -- Chargement des parametres
         local action = value[1]
-        local timeStart = convert_second(value[2], value[3], value[4])
-        local timeEnd = convert_second(value[5], value[6], value[7])
-        local interval = tonumber(value[8])
-        local aperture = tonumber(value[9])
-        local iso = tonumber(value[10])
-        local shutterSpeed = tonumber(value[11])
-        local mluDelay = tonumber(value[12])
-        log ("%s - Action: %s TimeStart: %s:%s:%s/%ss TimeEnd: %s:%s:%s/%ss Interval: %ss Aperture %s ISO %s ShutterSpeed: %ss MluDelay: %ss",pretty_time(get_cur_secs()), 
-        action, value[2], value[3], value[4], timeStart, value[5], value[6], value[7], timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
-        -- Les paramètres sont chargés on gère le mirror lockup
-        set_mirror_lockup(mluDelay)
-
-        -- On boucle tant que nous ne sommes pas dans le bon créneau horaire
-        local counter = 0
-        while (get_cur_secs() < timeStart)
-        do  -- Pas encore l'heure on attend 0.5 seconde
-            counter = counter +1
-            if (counter >= 40) -- Affiche Waiting toutes les 20s
-            then
-                display.notify_box("Waiting "..(timeStart - get_cur_secs()), 2000)
-                counter = 0
-            end
-            msleep(500)
-        end
-        if (action == "Boucle") -- Traitement d'une ligne d'action Boucle
+        if (action == "Config") -- Traitement d'une ligne de set_config
         then
-            if (get_cur_secs() <= timeEnd ) -- On vérifie que l'on ne soit pas après l'heure
-            then
-                -- Lancement de la boucle de prises de vues
-                boucle(timeEnd, interval, iso, aperture, shutterSpeed, mluDelay)
-            else
-                log ("%s - Too last ! TimeEnd: %ss soit %s", pretty_time(get_cur_secs()), timeEnd, pretty_time(timeEnd))
-            end
-        elseif (action == "Photo") -- Traitement d'une ligne de Photo
+            configTable = {read_config(value)}
+            TestMode = configTable[6]
+            log ("%s - Set test mode : %s", pretty_time(get_cur_secs()), TestMode)
+        elseif (action == "Boucle") or (action == "Photo")
         then
-            -- Lancement de la prises de vues
-            take_shoot(iso, aperture, shutterSpeed, mluDelay)
+            local refTime = value[2]
+            local operStart = value[3] -- Opérande pour le timeStart
+            local operEnd = value[7]   -- Opérande pour le timeEnd
+            local timeStart = 0
+            local timeEnd = 0
+            if (refTime == "-")
+            then  -- Mode absolu
+                timeStart = convert_second(value[4], value[5], value[6])
+                timeEnd = convert_second(value[8], value[9], value[10])
+            else  -- Mode relatif
+                timeStart = convert_time(refTime, operStart, convert_second(value[4], value[5], value[6]), configTable)
+                if (action == "Boucle") -- Le timeEnd n'est utilisé que pour les Boucle
+                then
+                    timeEnd = convert_time(refTime, operEnd, convert_second(value[8], value[9], value[10]), configTable)
+                else
+                    timeEnd = ""
+                end
+            end
+            local interval = tonumber(value[11])
+            local aperture = tonumber(value[12])
+            local iso = tonumber(value[13])
+            local shutterSpeed = tonumber(value[14])
+            local mluDelay = tonumber(value[15])
+            log ("%s - Action: %s TimeRef: %s OperStart: %s TimeStart: %s:%s:%s-%ss OperEnd: %s TimeEnd: %s:%s:%s-%ss Interval: %ss Aperture %s ISO %s ShutterSpeed: %ss MluDelay: %ss",pretty_time(get_cur_secs()), 
+            action, refTime, operStart, value[4], value[5], value[6], timeStart, operEnd, value[8], value[9], value[10], timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
+            -- Lancement de l'action, Boucle ou Photo
+            do_action(action, timeStart, timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
         end
         -- Ligne traitée on passe à la suivante
         log ("%s - Line %s finish go to the next line.", pretty_time(get_cur_secs()), key)

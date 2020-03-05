@@ -3,18 +3,30 @@
 # Script pour eclipse_OZ.lua
 # Script de test
 # ! Pas de ligne vide mettre un # devant
-# Action = Boucle (suite de photo identiques) ou Photo (photo unique)       | Hd Md Sd = Heure:Minute:Seconde de début de la boucle ou de la Photo
+# 
+#        C1    C2    Max   C3    C4
+# Config,H:M:S,H:M:S,H:M:S,H:M:S,H:M:S,TestMode
+# C1 = Heure du 1er contact | C2 = Heure du 2éme contact | Max = Heure du maximum | C3 et C4 = Heure des contacts 3 et 4
+# TestMode = 0 (mode réel déclenchement), 1 (mode simulé)
+#
+# Action,Ref,Oper,Hd:Md:Sd,Oper,Hf:Mf:Sf,Interval,Aperture,ISO,ShutterSpeed,MLUDelay
+#
+# Action = Boucle (suite de photo identiques) ou Photo (photo unique)       | Ref = Indique le point de référence, mettre un "-" si en mode absolu
+# Oper = Ajoute ou soustrait l'heure à la Ref                               | Hd Md Sd = Heure:Minute:Seconde de début de la boucle ou de la Photo
 # Hf Mf Sf = Heure:Minute:Seconde de fin de la boucle                       | Interval = Délais en seconde entre 2 photo dans un boucle
 # Aperture = Ouverture, choisir des valeurs compatibles avec le boitier     | ISO = Sensibilité, choisir des valeurs compatibles avec le boitier
 # ShutterSpeed = Vitesse d'obturation en seconde                            | MLUDelay = Temps d'attente une fois le mirroir relevé en seconde    
-# Action,Hd:Md:Sd,Hf:Mf:Sf,Interval,Aperture,ISO,ShutterSpeed,MLUDelay
-Boucle,21:20:00,21:22:00,20,8,800,0.0005,500
-Boucle,21:22:05,21:22:35,1,8,200,0.0005,0
 #
-Photo,21:22:40,-,-,-,-,4,1600,1,500
-Photo,21:22:45,-,-,-,-,4,1600,2,500
-Photo,21:22:50,-,-,-,-,4,1600,3,500
-Photo,21:23:00,-,-,-,-,4,1600,0.5,500
+# Exemples
+Config,14:41:05,16:02:49,16:03:53,16:04:58,17:31:03,1
+Boucle,C1,-,00:02:00,+,00:00:30,20,8,800,0.0005,500
+Boucle,C2,-,00:01:00,+,00:00:30,10,8,200,0.0005,0
 #
-Boucle,21:23:0,21:24:35,1,8,200,0.0005,0
-Boucle,21:25:0,21:30:00,20,8,800,0.0005,0
+Photo,Max,-,00:00:10,-,-,-,-,-,4,1600,1,500
+Photo,Max,-,00:00:05,-,-,-,-,-,4,1600,1,500
+Photo,Max,+,00:00:05,-,-,-,-,-,4,1600,1,500
+Photo,Max,+,00:00:10,-,-,-,-,-,4,1600,2,500
+#
+Boucle,C3,-,00:00:30,+,00:01:00,10,8,800,0.0005,500
+Boucle,C4,-,00:00:30,+,00:02:00,1,8,200,0.0005,0
+#
