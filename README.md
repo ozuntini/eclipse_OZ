@@ -20,34 +20,37 @@ La séquence de photos est décrite dans un fichier texte SOLARECL.TXT.
 Chaque séquence est décrite sur une ligne composée de paramètres séparés par une virgule "," ou un double point ":".
 Il faut respecter les règles suivantes
 * Pas de ligne vide
-* Pas de paramètre vide, y mettre -
+* Pas de paramètre vide, y mettre un "-"
 * \# pour commenter une ligne
 * Les séquences doivent se suivre temporellement. Le fichier n'est lu que dans un sens. 
 
-Trois type de lignes sont possibles, Config, Boucle ou Photo.
+Trois types de lignes sont possibles, Config, Boucle ou Photo.
 
 ### Syntaxe de la ligne Config
+La ligne Config permet de travailler en mode heure relative.
+En spécifiant les circonstances locales il n'est pas nécessaire de modifier l'ensemble du fichier quand celles-ci changent.
 La ligne décrit la config de la manière suivante :
+```
        C1    C2    Max   C3    C4
 Config,H:M:S,H:M:S,H:M:S,H:M:S,H:M:S,TestMode
-
+```
 ### Description des champs
 Position|Nom|Valeur|Description
 :---:|:---:|:---:|:---
 1|Action|Config|Ligne de définition des circonstances locales de l'éclipse
-2|Hd|0-23|Heure du premier contact
-3|Md|0-59|Minute du premier contact
+2|Hd|0-23|Heure du premier contact C1
+3|Md|0-59|Minute du premier contact 
 4|Sd|0-59|Seconde du premier contact
-5|Hd|0-23|Heure du deuxième contact
+5|Hd|0-23|Heure du deuxième contact C2
 6|Md|0-59|Minute du deuxième contact
 7|Sd|0-59|Seconde du deuxième contact
-8|Hd|0-23|Heure du maximum
+8|Hd|0-23|Heure du maximum Max
 9|Md|0-59|Minute du maximum
 10|Sd|0-59|Seconde du maximum
-11|Hd|0-23|Heure du troisième contact
+11|Hd|0-23|Heure du troisième contact C3
 12|Md|0-59|Minute du troisième contact
 13|Sd|0-59|Seconde du troisième contact
-14|Hd|0-23|Heure du quatrième contact
+14|Hd|0-23|Heure du quatrième contact C4
 15|Md|0-59|Minute du quatrième contact
 16|Sd|0-59|Seconde du quatrième contact
 17|TestMode|0 ou 1|Active/Désactive le mode de test
@@ -70,7 +73,7 @@ Chaque ligne décrit une séquence de la manière suivante :
 Position|Nom|Valeur|Description
 :---:|:---:|:---:|:---
 1|Action|Boucle ou Photo|Suite de photos identiques ou photo unique
-2|Ref|C1,C2,Max,C3,C4|Indique le point de référence, mettre un "-" si en mode absolu
+2|Ref|C1,C2,Max,C3,C4 ou -|Indique le point de référence, mettre un "-" si en mode absolu
 3|Oper|+ ou -|Ajoute ou soustrait l'heure de début à la Ref
 4|Hd|0-23|Heure de début de la séquence
 5|Md|0-59|Minute de début de la séquence
@@ -85,8 +88,8 @@ Position|Nom|Valeur|Description
 14|ShutterSpeed|Num.|Vitesse d'exposition en seconde (**)
 15|MLUDelay|Num.|Délais d'attente entre la montée du mirroir et le déclenchement, en miliseconde. Si 0 pas de montée du mirroir avant le déclenchement. 
 
-(*) Uniquement utilisé par l'action "Boucle"  
-(**) Attention prendre des valeurs compatible avec votre équipement
+(*) Uniquement utilisé par l'action "Boucle".  
+(**) Attention prendre des valeurs compatibles avec votre équipement.
 
 #### Exemples
 
@@ -104,6 +107,10 @@ Mode absolu, photo à 21:22:40, Diaph=4, ISO=1600, Vitesse 1, Mirror lockup avec
 
 Mode relatif photo 01:10:30 avant C1, Diaph=4, ISO=1600, Vitesse 1, Mirror lockup avec 0,5s de délais.
 >`Photo,C1,-,01:10:30,-,-,-,-,-,4,1600,1,500`
+
+### Attention !
+Le passage du changement de jour n'est pas fonctionnel dans cette version.  
+Utiliser l'heure locale, il y a rarement des éclipses à 0h TL.
 
 ## Lancement de la séquence
 * Choisir le menu script.  
