@@ -1,3 +1,6 @@
+## Changelog 07/03/2020
+Modification du fichier séquence pour des tests de qualification.
+
 ## Changelog 05/03/2020
 Mise en fonction de la gestion des actions.
 Création de la fonction read_config qui lit la ligne Config et en retire les valeurs Cx Max et TestMode.

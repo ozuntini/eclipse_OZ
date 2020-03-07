@@ -18,7 +18,7 @@
 # ShutterSpeed = Vitesse d'obturation en seconde                            | MLUDelay = Temps d'attente une fois le mirroir relevé en seconde    
 #
 # Exemples
-Config,14:41:05,16:02:49,16:03:53,16:04:58,17:31:03,1
+Config,20:20:30,20:25:05,20:26:15,20:27:55,20:30:03,1
 Boucle,C1,-,00:02:00,+,00:00:30,20,8,800,0.0005,500
 Boucle,C2,-,00:01:00,+,00:00:30,10,8,200,0.0005,0
 #
