@@ -1,5 +1,5 @@
 -- Eclipse Magic Lantern
-Version = "2.0"
+Version = "2.1.0"
 -- Exécution d'un cycle de photos pour suivre une éclipse
 -- Adapté du script eclipse_magic de Brian Greenberg, grnbrg@grnbrg.org.
 --		http://www.grnbrg.org/
@@ -218,6 +218,11 @@ end
 
 -- Boucle de prises de vue (hFin et intervalle en seconde)
 function boucle(hFin, intervalle, iso, aperture, shutter_speed, mluDelay)
+    intervalle = math.ceil(intervalle - 0.5)
+    if (intervalle < 1) then
+        intervalle = 1  -- impossible d'avoir un intervalle < à 1s
+        log ("%s - action Boucle ou Interval : set interval to 1s.",pretty_time(get_cur_secs()))
+    end
     log ("%s - Boucle: hFin: %s Intervalle: %s s", pretty_time(get_cur_secs()), pretty_time(hFin), intervalle)
     local shootTime = get_cur_secs()
     while (get_cur_secs() <= hFin) and ((shootTime + intervalle) <= hFin)
@@ -226,7 +231,7 @@ function boucle(hFin, intervalle, iso, aperture, shutter_speed, mluDelay)
         take_shoot(iso, aperture, shutter_speed, mluDelay)
         while ((shootTime + intervalle -1) >= get_cur_secs()) and ((shootTime + intervalle) <= hFin) -- intervalle -1 pour prendre en compte le délais de prise de vue
         do
-            msleep(500) -- Wait 1/4 s
+            msleep(500) -- Wait 1/2 s
         end
     end
     log ("%s - End of boucle",pretty_time(get_cur_secs()))
@@ -265,7 +270,7 @@ function do_action(action, timeStart, timeEnd, interval, aperture, iso, shutterS
         end
         msleep(500)
     end
-    if (action == "Boucle") -- Traitement d'une ligne d'action Boucle
+    if (action == "Boucle") or (action == "Interval") -- Traitement d'une ligne d'action Boucle ou Interval
     then
         if (get_cur_secs() <= timeEnd ) -- On vérifie que l'on ne soit pas après l'heure
         then
@@ -309,7 +314,7 @@ function main()
             configTable = {read_config(value)}
             TestMode = configTable[6]
             log ("%s - Set test mode : %s", pretty_time(get_cur_secs()), TestMode)
-        elseif (action == "Boucle") or (action == "Photo")
+        elseif (action == "Boucle") or (action == "Interval") or (action == "Photo")
         then
             local refTime = value[2]
             local operStart = value[3] -- Opérande pour le timeStart
@@ -322,20 +327,28 @@ function main()
                 timeEnd = convert_second(value[8], value[9], value[10])
             else  -- Mode relatif
                 timeStart = convert_time(refTime, operStart, convert_second(value[4], value[5], value[6]), configTable)
-                if (action == "Boucle") -- Le timeEnd n'est utilisé que pour les Boucle
+                if (action == "Boucle") or (action == "Interval") -- Le timeEnd n'est utilisé que pour les Boucle et pour les Interval
                 then
                     timeEnd = convert_time(refTime, operEnd, convert_second(value[8], value[9], value[10]), configTable)
                 else
                     timeEnd = ""
                 end
             end
-            local interval = tonumber(value[11])
+            local interval = 0
+            -- Gestion du mode Boucle ou interval, dans le 1er la valeur [11] correspond à l'intervalle en seconde entre 2 photos,
+            -- dans le 2éme il indique le nombre de photos entre le début et la fin.
+            if (action == "Interval")
+            then
+                interval = (timeEnd - timeStart) / tonumber(value[11]) -- Conversion du nombre de photos en intervalle
+            else
+                interval = tonumber(value[11])
+            end
             local aperture = tonumber(value[12])
             local iso = tonumber(value[13])
             local shutterSpeed = tonumber(value[14])
             local mluDelay = tonumber(value[15])
-            log ("%s - Action: %s TimeRef: %s OperStart: %s TimeStart: %s:%s:%s-%ss OperEnd: %s TimeEnd: %s:%s:%s-%ss Interval: %ss Aperture %s ISO %s ShutterSpeed: %ss MluDelay: %ss",pretty_time(get_cur_secs()), 
-            action, refTime, operStart, value[4], value[5], value[6], timeStart, operEnd, value[8], value[9], value[10], timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
+            log ("%s - Action: %s TimeRef: %s OperStart: %s TimeStart: %s %s %s:%s:%s=%ss OperEnd: %s TimeEnd: %s %s %s:%s:%s=%ss Interval: %ss Aperture %s ISO %s ShutterSpeed: %ss MluDelay: %ss",pretty_time(get_cur_secs()), 
+            action, refTime, operStart, refTime, operStart, value[4], value[5], value[6], timeStart, operEnd, refTime, operEnd, value[8], value[9], value[10], timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
             -- Lancement de l'action, Boucle ou Photo
             do_action(action, timeStart, timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
         end

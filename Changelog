@@ -1,3 +1,10 @@
+## Changelog 15/03/2020
+Création de la branche feature_interval pour ajouter un nouveau type de ligne dans le script de séquence
+MLua_mount_imgSD - Corrections du texte affiché
+MLua_PIC - Ajout d'information dans les commentaires
+eclipse_OZ - Ajout de la gestion de l'action Interval. L'intervalle est calculé à partir de la durée divisée par le nb de photos voulu. Modification du log pour améliorer la lecture.
+Readme - Description de la nouvelle fonction Interval et corrections diverses.
+
 ## Changelog 13/03/2020
 Modification de l'image de validation du module Lua. Initialement le module Lua est en bas d'écran.
 

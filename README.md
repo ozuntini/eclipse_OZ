@@ -24,9 +24,9 @@ Il faut respecter les règles suivantes
 * \# pour commenter une ligne
 * Les séquences doivent se suivre temporellement. Le fichier n'est lu que dans un sens. 
 
-Trois types de lignes sont possibles, Config, Boucle ou Photo.
+Trois types de lignes sont possibles, Config, Boucle, Photo, Interval.
 
-### Syntaxe de la ligne Config
+## Syntaxe de la ligne Config
 La ligne Config permet de travailler en mode heure relative.
 En spécifiant les circonstances locales il n'est pas nécessaire de modifier l'ensemble du fichier quand celles-ci changent.
 La ligne décrit la config de la manière suivante :
@@ -59,6 +59,15 @@ Position|Nom|Valeur|Description
 Config : C1 = 14h41m05s C2 = 16h02m49s Max = 16h03m53s C3 = 16h04m58s C4 = 17h31m03s TestMode = actif
 `Config,14:41:05,16:02:49,16:03:53,16:04:58,17:31:03,1`
 
+## Syntaxe des lignes Photo, Boucle et Interval
+L'action Photo réalise une photo à l'heure voulue et avec les paramètres indiqués dans la ligne.
+
+L'action Boucle réalise une série de photos entre l'heure de début et l'heure de fin avec un intervalle donné.
+
+L'action Interval est identique à Boucle mais on indique le nombre de photos au lieu de l'intervalle. L'intervalle entre deux photos est calculé par la durée divisée par le nombre de photos. A cause des arrondis il est possible que le nombre de photos réalisées soit légèrement différent de celui voulu.
+
+Les heures peuvent être indiquées en mode absolu ou relatif.
+
 ### Syntaxe en heure absolue
 Chaque ligne décrit une séquence de la manière suivante :
 
@@ -72,7 +81,7 @@ Chaque ligne décrit une séquence de la manière suivante :
 ### Description des champs
 Position|Nom|Valeur|Description
 :---:|:---:|:---:|:---
-1|Action|Boucle ou Photo|Suite de photos identiques ou photo unique
+1|Action|Boucle, Interval ou Photo|Suite de photos identiques ou photo unique
 2|Ref|C1,C2,Max,C3,C4 ou -|Indique le point de référence, mettre un "-" si en mode absolu
 3|Oper|+ ou -|Ajoute ou soustrait l'heure de début à la Ref
 4|Hd|0-23|Heure de début de la séquence
@@ -82,13 +91,13 @@ Position|Nom|Valeur|Description
 8|Hf|0-23|Heure de fin de la séquence (*)
 9|Mf|0-59|Minute de fin de la séquence (*)
 10|Sf|0-59|Seconde de fin de la séquence (*)
-11|Interval|Num.|Intervalle entre deux photos en seconde (*)
+11|Interval ou Number|Num. >= 1|Intervalle entre deux photos en seconde (*) ou nombre de photo à faire entre Hd et Hf
 12|Aperture|Diaph.|Valeur du Diaphragme (2.8,8,11...)(**)
 13|ISO|Num.|Sensibilité du capteur (100, 800, 6400,...)(**)
 14|ShutterSpeed|Num.|Vitesse d'exposition en seconde (**)
 15|MLUDelay|Num.|Délais d'attente entre la montée du mirroir et le déclenchement, en miliseconde. Si 0 pas de montée du mirroir avant le déclenchement. 
 
-(*) Uniquement utilisé par l'action "Boucle".  
+(*) Uniquement utilisé par l'action "Boucle" et "Interval".  
 (**) Attention prendre des valeurs compatibles avec votre équipement.
 
 #### Exemples
@@ -98,6 +107,9 @@ Mode absolu, série de 21:22:05 à 21:25:35, une photo toutes les 5s, Diaph=8, I
 
 Mode relatif, série de 00:20:00 avant C2 à 00:01:30 après C2, une photo toutes les 5s, Diaph=8, ISO=200, Vitesse 1/2000, pas de Mirror lockup.  
 >`Boucle,C2,-,00:20:00,+,00:01:30,5,8,200,0.0005,0`
+
+Mode relatif, série de 200 photos entre 00:20:00 avant C2 et 00:01:30 après C2, Diaph=8, ISO=200, Vitesse 1/2000, pas de Mirror lockup.  
+>`Interval,C2,-,00:20:00,+,00:01:30,200,8,200,0.0005,0`
 
 Ligne de commentaire.  
 >`# Commentaire`  
@@ -110,7 +122,8 @@ Mode relatif photo 01:10:30 avant C1, Diaph=4, ISO=1600, Vitesse 1, Mirror locku
 
 ### Attention !
 Le passage du changement de jour n'est pas fonctionnel dans cette version.  
-Utiliser l'heure locale, il y a rarement des éclipses à 0h TL.
+Utiliser l'heure locale, il y a rarement des éclipses à 0h TL.  
+Le temps minimum entre deux images est de 1s.
 
 ## Lancement de la séquence
 * Choisir le menu script.  
