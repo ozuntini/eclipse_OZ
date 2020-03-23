@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #Script de copie du script Lua sur les pseudo SD Qemu et lancement du virtualiseur
+#Utilisation de l'émulation Qemu avec ML https://bitbucket.org/hudson/magic-lantern/src/qemu/contrib/qemu/README.rst
+#Testé uniquement sur Mac
 
 repQemu="/Users/olivierzuntini/Documents/Projects/qemu-eos"
 

@@ -21,7 +21,7 @@ if [ -d /Volumes/EOS_DIGITAL ]; then
     exit 1
 fi
 
-echo "Montage des images de SD : " $nameScript "."
+echo "Montage des images de SD : et copie de " $nameScript "."
 
 echo "-> Déplacement dans le répertoir Qemu-eos"
 cd $repQemu
@@ -30,10 +30,10 @@ echo "-> Montage de la pseudo carte SD"
 ./mount.sh
 
 echo "-> Copie du script " $nameScript " sur la carte 1"
-cp /Users/olivierzuntini/Documents/Projects/MagicLantern/ML_Eclipse/$nameScript /Volumes/EOS_DIGITAL/ML/scripts/
+cp /Users/olivierzuntini/Documents/Projects/MagicLantern/ML_Eclipse/"$nameScript" /Volumes/EOS_DIGITAL/ML/scripts/
 
 echo "-> Copie du script " $nameScript " sur la carte 2"
-cp /Users/olivierzuntini/Documents/Projects/MagicLantern/ML_Eclipse/$nameScript /Volumes/EOS_DIGITA1/ML/scripts/
+cp /Users/olivierzuntini/Documents/Projects/MagicLantern/ML_Eclipse/"$nameScript" /Volumes/EOS_DIGITA1/ML/scripts/
 
 echo "-> Fermeture des cartes 1 et 2"
 hdiutil detach "/Volumes/EOS_DIGITAL"
