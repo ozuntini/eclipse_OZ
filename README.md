@@ -8,6 +8,13 @@ grnbrg@grnbrg.org http://www.grnbrg.org/
 Préparation pour l'éclipse du 14 décembre 2020 au Chili ou Argentine.  
 Qualifié avec un Canon 6D.  
 
+## Principe de fonctionnement
+Le programme eclipse_OZ.lua va réaliser une série de photos à des heures précises en fonction des commandes passées dans un fichier de séquence.  
+Les heures peuvent être indiquées en fonction de circonstances locales, 1er contact, 2éme contact...  
+Elles peuvent être indiquées aussi en absolue, 13h45m06s...  
+Le programme ne gère pas le jour, la séquence commencera à l'heure indiquée quel que soit le jour.
+Il est exécuté par l'application Magic Lantern. Les informations sur Magic Lantern sont données dans le chapitre suivant.
+
 ## Magic Lantern
 Installer Magic Lantern sur votre boitier.  
 https://www.magiclantern.fm/index.html  
@@ -69,11 +76,13 @@ L'action Interval est identique à Boucle mais on indique le nombre de photos au
 Les heures peuvent être indiquées en mode absolu ou relatif.
 
 ### Syntaxe en heure absolue
+En heure absolue, l'image ou la séquence sera réalisée à l'heure indiqué littéralement.
 Chaque ligne décrit une séquence de la manière suivante :
 
 `Action,-,-,Hd:Md:Sd,-,Hf:Mf:Sf,Interval,Aperture,ISO,ShutterSpeed,MLUDelay`
 
 ### Syntaxe en heure relative
+En heure relative, l'image ou la séquence sera réalisée en fonction de la circonstance locale, de l'opérande et de l'heure indiquée.
 Chaque ligne décrit une séquence de la manière suivante :
 
 `Action,C1,+,Hd:Md:Sd,+,Hf:Mf:Sf,Interval,Aperture,ISO,ShutterSpeed,MLUDelay`

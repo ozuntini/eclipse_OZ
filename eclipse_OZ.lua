@@ -20,6 +20,7 @@ LoggingFile = nil
 
 -- Mode test
 -- Le mode test ne déclenche pas dans ce cas il faut que la valeur soit 1
+-- Il est possible de configurer le TestMode dans la ligne de config du script de schedule
 TestMode = 0
 
 -- Répertoire et Nom du script de schedule
