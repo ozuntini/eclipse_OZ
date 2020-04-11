@@ -1,3 +1,7 @@
+## Changelog 11/04/2020
+Dans la boucle d'attente passage à un incrément de 1/4 de seconde et modification du calcul de l'heure de début
+Correction de l'affichage de MluDelay la valeur est en ms et l'unité affichée était la seconde
+
 ## Changelog 23/03/2020
 git rm de .gitignore
 Amélioration de la documentation.

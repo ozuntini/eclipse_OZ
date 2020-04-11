@@ -206,10 +206,9 @@ function take_shoot(iso, aperture, shutter_speed, mluDelay) -- mluDelay = delay 
     then
         log ("%s - NO Shoot! ISO: %s Aperture: %s shutter: %s Test Mode",pretty_time(get_cur_secs()), tostring(camera.iso.value), tostring(camera.aperture.value), pretty_shutter(camera.shutter.value))
     else
-        log ("%s - Shoot! ISO: %s Aperture: %s shutter: %s",pretty_time(get_cur_secs()), tostring(camera.iso.value), tostring(camera.aperture.value), pretty_shutter(camera.shutter.value))
         camera.shoot(false) -- Shoot a picture
+        log ("%s - Shoot! ISO: %s Aperture: %s shutter: %s",pretty_time(get_cur_secs()), tostring(camera.iso.value), tostring(camera.aperture.value), pretty_shutter(camera.shutter.value))
     end
-    task.yield(10)      -- sleep 10 ms
     if (mluDelay > 0)
     then
         key.press(KEY.UNPRESS_HALFSHUTTER)
@@ -261,15 +260,15 @@ function do_action(action, timeStart, timeEnd, interval, aperture, iso, shutterS
 
     -- On boucle tant que nous ne sommes pas dans le bon créneau horaire
     local counter = 0
-    while (get_cur_secs() < timeStart)
-    do  -- Pas encore l'heure on attend 0.5 seconde
+    while (get_cur_secs() < (timeStart - (mluDelay/1000)))
+    do  -- Pas encore l'heure on attend 0.25 seconde
         counter = counter +1
-        if (counter >= 40) -- Affiche Waiting toutes les 20s
+        if (counter >= 80) -- Affiche Waiting toutes les 20s
         then
             display.notify_box("Waiting "..(timeStart - get_cur_secs()), 2000)
             counter = 0
         end
-        msleep(500)
+        msleep(250)
     end
     if (action == "Boucle") or (action == "Interval") -- Traitement d'une ligne d'action Boucle ou Interval
     then
@@ -348,7 +347,7 @@ function main()
             local iso = tonumber(value[13])
             local shutterSpeed = tonumber(value[14])
             local mluDelay = tonumber(value[15])
-            log ("%s - Action: %s TimeRef: %s OperStart: %s TimeStart: %s %s %s:%s:%s=%ss OperEnd: %s TimeEnd: %s %s %s:%s:%s=%ss Interval: %ss Aperture %s ISO %s ShutterSpeed: %ss MluDelay: %ss",pretty_time(get_cur_secs()), 
+            log ("%s - Action: %s TimeRef: %s OperStart: %s TimeStart: %s %s %s:%s:%s=%ss OperEnd: %s TimeEnd: %s %s %s:%s:%s=%ss Interval: %ss Aperture %s ISO %s ShutterSpeed: %ss MluDelay: %sms",pretty_time(get_cur_secs()), 
             action, refTime, operStart, refTime, operStart, value[4], value[5], value[6], timeStart, operEnd, refTime, operEnd, value[8], value[9], value[10], timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
             -- Lancement de l'action, Boucle ou Photo
             do_action(action, timeStart, timeEnd, interval, aperture, iso, shutterSpeed, mluDelay)
