@@ -1,5 +1,5 @@
 -- Eclipse Magic Lantern
-Version = "2.1.0"
+Version = "2.1.1"
 -- Exécution d'un cycle de photos pour suivre une éclipse
 -- Adapté du script eclipse_magic de Brian Greenberg, grnbrg@grnbrg.org.
 --		http://www.grnbrg.org/

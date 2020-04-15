@@ -1,3 +1,6 @@
+## Changelog 15/04/2020
+Passage en version 2.1.1 pour qualification par un testeur
+
 ## Changelog 11/04/2020
 Dans la boucle d'attente passage à un incrément de 1/4 de seconde et modification du calcul de l'heure de début
 Correction de l'affichage de MluDelay la valeur est en ms et l'unité affichée était la seconde
