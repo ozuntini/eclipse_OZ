@@ -1,9 +1,10 @@
 # SOLARECL.TXT
-# Version 2.1.0
+# Version 2.2.0
 # Script pour eclipse_OZ.lua
 # Script de test
 # ! Pas de ligne vide mettre un # devant
 # 
+# Verif,Mode,AF,Bat,SD
 #        C1    C2    Max   C3    C4
 # Config,H:M:S,H:M:S,H:M:S,H:M:S,H:M:S,TestMode
 # C1 = Heure du 1er contact | C2 = Heure du 2éme contact | Max = Heure du maximum | C3 et C4 = Heure des contacts 3 et 4
@@ -13,11 +14,12 @@
 #
 # Action = Boucle ou Interval (suite de photo identiques), ou Photo (photo unique)  | Ref = Indique le point de référence, mettre un "-" si en mode absolu
 # Oper = Ajoute ou soustrait l'heure à la Ref                                       | Hd Md Sd = Heure:Minute:Seconde de début de la boucle ou de la Photo
-# Hf Mf Sf = Heure:Minute:Seconde de fin de la boucle                               | Interval = Délais en seconde entre 2 photo dans un boucle
+# Hf Mf Sf = Heure:Minute:Seconde de fin de la boucle                               | Interval = Délais en seconde entre 2 photos dans un boucle
 # Aperture = Ouverture, choisir des valeurs compatibles avec le boitier             | ISO = Sensibilité, choisir des valeurs compatibles avec le boitier
 # ShutterSpeed = Vitesse d'obturation en seconde                                    | MLUDelay = Temps d'attente une fois le mirroir relevé en seconde    
 #
 # Exemples
+Verif,3,0,50,2000
 Config,20:20:30,20:25:05,20:26:15,20:27:55,20:30:03,1
 Boucle,C1,-,00:02:00,+,00:00:30,20,8,800,0.0005,500
 Interval,C2,-,00:01:00,+,00:00:30,50,8,200,0.0005,0

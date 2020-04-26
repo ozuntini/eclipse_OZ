@@ -31,7 +31,24 @@ Il faut respecter les règles suivantes
 * \# pour commenter une ligne
 * Les séquences doivent se suivre temporellement. Le fichier n'est lu que dans un sens. 
 
-Trois types de lignes sont possibles, Config, Boucle, Photo, Interval.
+Cinq types de lignes sont possibles, Verif, Config, Boucle, Photo, Interval.
+
+## Syntaxe de la ligne Verif
+Quatre paramètres du boitier sont analysés au démarrage du programme et affichés si une ligne Verif est présente dans le descriptif.  
+Il est possible de les rendre bloquants si une valeur est indiquée dans la ligne Verif.  
+Si la valeur est - le paramètre n'est pas vérifié. Si la valeur est indiquée la vérification est faite.
+Les paramètres ne sont vérifiés qu'au début du cycle.
+
+### Description des champs
+Position|Nom|Valeur|Description
+:---:|:---:|:---:|:---
+1|Action|Verif|Ligne d'activation de la vérification
+2|Mode|- ou 3|Le mode manuel est obligatoire sa valeur est 3 (*)
+3|Autofocus|- ou 0|L'autofocus doit être désactivé = 0
+4|Batterie|- ou N|Indiquer le niveau minimum de batterie en %
+5|Stockage|- ou N|Indiquer l'espace minimum en méga octets
+
+(*) https://builds.magiclantern.fm/lua_api/modules/constants.html#MODE
 
 ## Syntaxe de la ligne Config
 La ligne Config permet de travailler en mode heure relative.

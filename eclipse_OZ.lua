@@ -1,5 +1,5 @@
 -- Eclipse Magic Lantern
-Version = "2.1.1"
+Version = "2.2.0"
 -- Exécution d'un cycle de photos pour suivre une éclipse
 -- Adapté du script eclipse_magic de Brian Greenberg, grnbrg@grnbrg.org.
 --		http://www.grnbrg.org/
@@ -237,6 +237,37 @@ function boucle(hFin, intervalle, iso, aperture, shutter_speed, mluDelay)
     log ("%s - End of boucle",pretty_time(get_cur_secs()))
 end
 
+-- Verify some camera properties
+function verify_conf(lineValue)
+    local refMode = lineValue[2]
+    local refAF = lineValue[3]
+    local refBat = lineValue[4]
+    local refFS = lineValue[5]
+    -- Configuration du boitier
+    local localMode = tostring(camera.mode)
+    local localAF = lens.af
+    if localAF then localAF = "1" else localAF = "0" end -- Conversion boolean en string
+    local localBat = tostring(battery.level)
+    local localCard = dryos.shooting_card -- recup référence de la carte utilisée
+    local localFS = tostring(math.ceil(localCard.free_space/1000 - 0.5))
+    --
+    log ("%s - Should: Model: %s Mode: %s AF: %s Bat.: %s %% Card: %s M°",pretty_time(get_cur_secs()), camera.model, refMode, refAF, refBat, refFS)
+    log ("%s - Have  : Model: %s Mode: %s AF: %s Bat.: %s %% Card: %s M°",pretty_time(get_cur_secs()), camera.model, localMode, localAF, localBat, localFS)
+    local verifResult = "go"
+    local verifError = ""
+    if (refMode ~= "-") and (refMode ~= localMode) then verifResult = "nogo"
+        verifError = "Incorect Mode"
+    elseif (refAF ~= "-") and (localAF ~= refAF) then verifResult = "nogo"
+        verifError = "AF On"
+    elseif (refBat~= "-") and (refBat > localBat) then verifResult = "nogo"
+        verifError = "Battery low"
+    elseif (refFS ~= "-") and (refFS > localFS) then verifResult = "nogo"
+        verifError = "Card full"
+    end
+    display.notify_box(verifError, 5000)
+    return verifResult
+end
+
 -- Read Config line and set C1, C2, Max, C3, C4 and TestMode
 function read_config(lineValue)
     local action = lineValue[1]
@@ -309,11 +340,27 @@ function main()
     for key,value in ipairs(scheduleTable)
     do  -- Chargement des parametres
         local action = value[1]
-        if (action == "Config") -- Traitement d'une ligne de set_config
+        -- Verify --
+        if (action == "Verif") -- Traitement de la ligne de vérification
+        then
+            local ready2go = verify_conf(value)
+            if ready2go == "nogo"
+            then
+                -- No Go affichage de l'alerte et sortie
+                print("Launch not accepted verify configuration !")
+                log ("%s - Configuration not accepted the sequence is stoped !", pretty_time(get_cur_secs()))
+                break
+            else
+                -- Go la séquence continue
+                log ("%s - Configuration accepted.", pretty_time(get_cur_secs()))
+            end
+        -- Load Config --
+        elseif (action == "Config") -- Traitement d'une ligne de set_config
         then
             configTable = {read_config(value)}
             TestMode = configTable[6]
             log ("%s - Set test mode : %s", pretty_time(get_cur_secs()), TestMode)
+        -- Make action --
         elseif (action == "Boucle") or (action == "Interval") or (action == "Photo")
         then
             local refTime = value[2]

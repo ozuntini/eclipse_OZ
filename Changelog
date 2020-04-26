@@ -1,3 +1,11 @@
+## Changelog 18/04/2020
+Création branch verif_feature pour vérifier l'état de la config avant de dérouler le script
+# Readme
+Description de la ligne Verif 
+# eclipse_OZ
+Chargement de la ligne Verif
+Création de la fonction verify qui vérifie les paramètres et retourne un go ou nogo
+
 ## Changelog 15/04/2020
 Passage en version 2.1.1 pour qualification par un testeur
 
