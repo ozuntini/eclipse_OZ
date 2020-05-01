@@ -50,6 +50,10 @@ Position|Nom|Valeur|Description
 
 (*) https://builds.magiclantern.fm/lua_api/modules/constants.html#MODE
 
+### Exemple
+Verif : Mode M, AF Off, 20%, 4000M°  
+`Verif,3,0,20,4000`
+
 ## Syntaxe de la ligne Config
 La ligne Config permet de travailler en mode heure relative.
 En spécifiant les circonstances locales il n'est pas nécessaire de modifier l'ensemble du fichier quand celles-ci changent.

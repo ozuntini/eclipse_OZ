@@ -1,4 +1,6 @@
 ## Changelog 01/05/2020
+Création d'un manuel d'utilisation et modification du readme en conséquence.
+Ajout d'un exemple pour la ligne Verif.
 # eclipse_OZ
 Corrections de bugs sur le calcul du niveau de batterie et les conversions number to string
 Affichage dans le log de la valeur bloquante lors de la vérification
