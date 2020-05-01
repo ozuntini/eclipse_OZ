@@ -1,3 +1,8 @@
+## Changelog 01/05/2020
+# eclipse_OZ
+Corrections de bugs sur le calcul du niveau de batterie et les conversions number to string
+Affichage dans le log de la valeur bloquante lors de la vérification
+
 ## Changelog 18/04/2020
 Création branch verif_feature pour vérifier l'état de la config avant de dérouler le script
 # Readme

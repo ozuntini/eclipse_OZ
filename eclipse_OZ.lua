@@ -247,9 +247,9 @@ function verify_conf(lineValue)
     local localMode = tostring(camera.mode)
     local localAF = lens.af
     if localAF then localAF = "1" else localAF = "0" end -- Conversion boolean en string
-    local localBat = tostring(battery.level)
+    local localBat = battery.level
     local localCard = dryos.shooting_card -- recup référence de la carte utilisée
-    local localFS = tostring(math.ceil(localCard.free_space/1000 - 0.5))
+    local localFS = math.ceil(localCard.free_space/1000 - 0.5)
     --
     log ("%s - Should: Model: %s Mode: %s AF: %s Bat.: %s %% Card: %s M°",pretty_time(get_cur_secs()), camera.model, refMode, refAF, refBat, refFS)
     log ("%s - Have  : Model: %s Mode: %s AF: %s Bat.: %s %% Card: %s M°",pretty_time(get_cur_secs()), camera.model, localMode, localAF, localBat, localFS)
@@ -259,12 +259,15 @@ function verify_conf(lineValue)
         verifError = "Incorect Mode"
     elseif (refAF ~= "-") and (localAF ~= refAF) then verifResult = "nogo"
         verifError = "AF On"
-    elseif (refBat~= "-") and (refBat > localBat) then verifResult = "nogo"
+    elseif (refBat~= "-") and (tonumber(refBat) > localBat) then verifResult = "nogo"
         verifError = "Battery low"
-    elseif (refFS ~= "-") and (refFS > localFS) then verifResult = "nogo"
+    elseif (refFS ~= "-") and (tonumber(refFS) > localFS) then verifResult = "nogo"
         verifError = "Card full"
     end
-    display.notify_box(verifError, 5000)
+    if (verifError ~= "") then
+        display.notify_box(verifError, 5000)  -- affichage de la cause
+        log ("%s - Error : %s",pretty_time(get_cur_secs()) , verifError)
+    end
     return verifResult
 end
 

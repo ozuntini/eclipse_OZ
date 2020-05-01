@@ -5,6 +5,7 @@
 # ! Pas de ligne vide mettre un # devant
 # 
 # Verif,Mode,AF,Bat,SD
+#
 #        C1    C2    Max   C3    C4
 # Config,H:M:S,H:M:S,H:M:S,H:M:S,H:M:S,TestMode
 # C1 = Heure du 1er contact | C2 = Heure du 2éme contact | Max = Heure du maximum | C3 et C4 = Heure des contacts 3 et 4
@@ -19,7 +20,7 @@
 # ShutterSpeed = Vitesse d'obturation en seconde                                    | MLUDelay = Temps d'attente une fois le mirroir relevé en seconde    
 #
 # Exemples
-Verif,3,0,50,2000
+Verif,3,0,20,4000
 Config,20:20:30,20:25:05,20:26:15,20:27:55,20:30:03,1
 Boucle,C1,-,00:02:00,+,00:00:30,20,8,800,0.0005,500
 Interval,C2,-,00:01:00,+,00:00:30,50,8,200,0.0005,0
