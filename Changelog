@@ -1,3 +1,7 @@
+## Changelog 30/01/2021
+Evolution du MLua_PIC.sh et du MLua_mount_imgSD.sh pour la gestion du 60D
+Adaptation du source eclipse_OZ.lua pour la gestion du nom de fichier de log
+
 ## Changelog 01/05/2020
 Création d'un manuel d'utilisation et modification du readme en conséquence.
 Ajout d'un exemple pour la ligne Verif.

@@ -1,5 +1,5 @@
 -- Eclipse Magic Lantern
-Version = "2.2.0"
+Version = "2.2.1"
 -- Exécution d'un cycle de photos pour suivre une éclipse
 -- Adapté du script eclipse_magic de Brian Greenberg, grnbrg@grnbrg.org.
 --		http://www.grnbrg.org/
@@ -17,6 +17,7 @@ require ("logger")
 -- Activation du mode log
 LogToFile = 1
 LoggingFile = nil
+LoggingFilename = "mlecl.log"
 
 -- Mode test
 -- Le mode test ne déclenche pas dans ce cas il faut que la valeur soit 1
