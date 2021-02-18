@@ -1,5 +1,5 @@
 # SOLARECL.TXT
-# Version 2.2.0
+# Version 2.2.1
 # Script pour eclipse_OZ.lua
 # Script de test
 # ! Pas de ligne vide mettre un # devant
@@ -20,8 +20,11 @@
 # ShutterSpeed = Vitesse d'obturation en seconde                                    | MLUDelay = Temps d'attente une fois le mirroir relevé en seconde    
 #
 # Exemples
+#  Mode,AF,Bat,SD
 Verif,3,0,20,4000
+#      C1       C2       Max      C3       C4       TestMode
 Config,20:20:30,20:25:05,20:26:15,20:27:55,20:30:03,1
+#
 Boucle,C1,-,00:02:00,+,00:00:30,20,8,800,0.0005,500
 Interval,C2,-,00:01:00,+,00:00:30,50,8,200,0.0005,0
 #

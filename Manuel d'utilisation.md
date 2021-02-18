@@ -1,4 +1,5 @@
 # eclipse_OZ.lua
+
 ## Eclipse Magic Lantern  
 
 Exécution d'un cycle de photos pour suivre une éclipse totale de Soleil.  
@@ -9,6 +10,7 @@ Préparation pour l'éclipse du 14 décembre 2020 au Chili ou Argentine.
 Qualifié avec un Canon 6D.  
 
 ## Principe de fonctionnement
+
 Le programme eclipse_OZ.lua va réaliser une série de photos à des heures précises en fonction des commandes passées dans un fichier de séquence.  
 Les heures peuvent être indiquées en fonction de circonstances locales, 1er contact, 2éme contact...  
 Elles peuvent être indiquées aussi en absolue, 13h45m06s...  
@@ -16,6 +18,7 @@ Le programme ne gère pas le jour, la séquence commencera à l'heure indiquée 
 Il est exécuté par l'application Magic Lantern. Les informations sur Magic Lantern sont données dans le chapitre suivant.
 
 ## Magic Lantern
+
 Installer Magic Lantern sur votre boitier.  
 https://www.magiclantern.fm/index.html  
 Attention ! Il faut activer le module lua  "Lua scripting" dans le menu Modules de MagicLantern.  
@@ -23,9 +26,11 @@ Attention ! Il faut activer le module lua  "Lua scripting" dans le menu Modules 
 Copier le script eclipse_OZ.lua dans le répertoire ML/SCRIPTS de la carte SD ainsi que le descriptif de la séquence, SOLARECL.TXT.
 
 ## Descriptif de la séquence
+
 La séquence de photos est décrite dans un fichier texte SOLARECL.TXT.  
 Chaque séquence est décrite sur une ligne composée de paramètres séparés par une virgule "," ou un double point ":".
 Il faut respecter les règles suivantes
+
 * Pas de ligne vide
 * Pas de paramètre vide, y mettre un "-"
 * \# pour commenter une ligne
@@ -34,12 +39,14 @@ Il faut respecter les règles suivantes
 Cinq types de lignes sont possibles, Verif, Config, Boucle, Photo, Interval.
 
 ## Syntaxe de la ligne Verif
+
 Quatre paramètres du boitier sont analysés au démarrage du programme et affichés si une ligne Verif est présente dans le descriptif.  
 Il est possible de les rendre bloquants si une valeur est indiquée dans la ligne Verif.  
 Si la valeur est - le paramètre n'est pas vérifié. Si la valeur est indiquée la vérification est faite.
 Les paramètres ne sont vérifiés qu'au début du cycle.
 
 ### Description des champs
+
 Position|Nom|Valeur|Description
 :---:|:---:|:---:|:---
 1|Action|Verif|Ligne d'activation de la vérification
@@ -51,18 +58,23 @@ Position|Nom|Valeur|Description
 (*) https://builds.magiclantern.fm/lua_api/modules/constants.html#MODE
 
 ### Exemple
+
 Verif : Mode M, AF Off, 20%, 4000M°  
 `Verif,3,0,20,4000`
 
 ## Syntaxe de la ligne Config
+
 La ligne Config permet de travailler en mode heure relative.
 En spécifiant les circonstances locales il n'est pas nécessaire de modifier l'ensemble du fichier quand celles-ci changent.
 La ligne décrit la config de la manière suivante :
+
 ```
        C1    C2    Max   C3    C4
 Config,H:M:S,H:M:S,H:M:S,H:M:S,H:M:S,TestMode
 ```
+
 ### Description des champs
+
 Position|Nom|Valeur|Description
 :---:|:---:|:---:|:---
 1|Action|Config|Ligne de définition des circonstances locales de l'éclipse
@@ -84,10 +96,12 @@ Position|Nom|Valeur|Description
 17|TestMode|0 ou 1|Active/Désactive le mode de test
 
 #### Exemple
+
 Config : C1 = 14h41m05s C2 = 16h02m49s Max = 16h03m53s C3 = 16h04m58s C4 = 17h31m03s TestMode = actif
 `Config,14:41:05,16:02:49,16:03:53,16:04:58,17:31:03,1`
 
 ## Syntaxe des lignes Photo, Boucle et Interval
+
 L'action Photo réalise une photo à l'heure voulue et avec les paramètres indiqués dans la ligne.
 
 L'action Boucle réalise une série de photos entre l'heure de début et l'heure de fin avec un intervalle donné.
@@ -97,18 +111,21 @@ L'action Interval est identique à Boucle mais on indique le nombre de photos au
 Les heures peuvent être indiquées en mode absolu ou relatif.
 
 ### Syntaxe en heure absolue
+
 En heure absolue, l'image ou la séquence sera réalisée à l'heure indiqué littéralement.
 Chaque ligne décrit une séquence de la manière suivante :
 
 `Action,-,-,Hd:Md:Sd,-,Hf:Mf:Sf,Interval,Aperture,ISO,ShutterSpeed,MLUDelay`
 
 ### Syntaxe en heure relative
+
 En heure relative, l'image ou la séquence sera réalisée en fonction de la circonstance locale, de l'opérande et de l'heure indiquée.
 Chaque ligne décrit une séquence de la manière suivante :
 
 `Action,C1,+,Hd:Md:Sd,+,Hf:Mf:Sf,Interval,Aperture,ISO,ShutterSpeed,MLUDelay`
 
 ### Description des champs
+
 Position|Nom|Valeur|Description
 :---:|:---:|:---:|:---
 1|Action|Boucle, Interval ou Photo|Suite de photos identiques ou photo unique
@@ -151,11 +168,13 @@ Mode relatif photo 01:10:30 avant C1, Diaph=4, ISO=1600, Vitesse 1, Mirror locku
 >`Photo,C1,-,01:10:30,-,-,-,-,-,4,1600,1,500`
 
 ### Attention !
+
 Le passage du changement de jour n'est pas fonctionnel dans cette version.  
 Utiliser l'heure locale, il y a rarement des éclipses à 0h TL.  
 Le temps minimum entre deux images est de 1s.
 
 ## Lancement de la séquence
+
 * Choisir le menu script.  
 * Déplacer la barre de sélection sur le choix Eclipse ML OZ.  
 * Lancer la séquence avec la touche SET.
@@ -164,19 +183,23 @@ Menu Scripts
 ![Menu Scripts](./images/Scripts.png)
 
 # Paramétrage du boitier
+
 Le boitier doit être en mode :
 * Auto power off à  Disable
 * Mode Manuel
 * Auto Focus en off
 
 ## Mirror Lockup
+
 Si le boitier le permet il est possible d'utiliser le Mirrorlockup. Cela permet d'éviter des vibrations pendant la prise de vue.  
 Menu Shoot - Mirror Lockup  
 ![Menu Shoot-Mirror-Lockup](./images/Shoot-MirrorLockup.png)  
-La configuration MLU Mirror Lockup est piloté par le script mais il est possible qu'elle ne soit pas acceptée. 
+La configuration MLU Mirror Lockup est piloté par le script mais il est possible qu'elle ne soit pas acceptée.
 
 # Configurations
+
 ## Mode test
+
 Pour tester le script il est possible d'utiliser le mode Test. Ce mode déroule le script normalement mais ne déclenche pas les photos.  
 Pour activer/désactiver ce mode, modifier le champ TestMode dans la ligne Config.
 * 0 => mode réel  

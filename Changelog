@@ -1,3 +1,7 @@
+## Changelog 18/02/2021
+Ajout de commentaire dans le script de séquence
+Amélioration du manuel d'utilisation et du Readme
+
 ## Changelog 30/01/2021
 Evolution du MLua_PIC.sh et du MLua_mount_imgSD.sh pour la gestion du 60D
 Adaptation du source eclipse_OZ.lua pour la gestion du nom de fichier de log
