@@ -1,0 +1,35 @@
+# Exemple de configuration d'éclipse
+# Basé sur l'éclipse solaire totale du 8 avril 2024 (exemple)
+# Format compatible avec le script Magic Lantern original
+
+# Ligne de configuration principale
+# Config,C1,C2,Max,C3,C4,test_mode
+# C1 = Premier contact, C2 = Début totalité, Max = Maximum, C3 = Fin totalité, C4 = Dernier contact
+# test_mode: 1 = simulation, 0 = mode réel
+Config,14:41:05,16:02:49,16:03:53,16:04:58,17:31:03,1
+
+# Actions photographiques
+# Format: Type,reference_temps,operateur,temps,operateur_fin,temps_fin,intervalle_ou_nombre,_,_,ouverture,iso,vitesse,mlu
+
+# Photo unique 10 secondes avant le maximum
+# Photo,Max,-,00:00:10,-,-,-,-,-,ouverture,iso,vitesse_obturation,delai_mlu
+Photo,Max,-,00:00:10,-,-,-,-,-,4,1600,1,500
+
+# Photo unique 30 secondes après C2
+Photo,C2,+,00:00:30,-,-,-,-,-,5.6,800,0.5,0
+
+# Boucle de photos pendant la totalité
+# Début 1 minute après C2, fin 1 minute avant C3, une photo toutes les 5 secondes
+Boucle,C2,+,00:01:00,-,00:01:00,5,-,-,8,400,0.008,0
+
+# Série de 10 photos réparties sur 2 minutes autour du maximum
+Interval,Max,-,00:01:00,+,00:01:00,10,-,-,11,200,0.004,1000
+
+# Photo finale après C4
+Photo,C4,+,00:02:00,-,-,-,-,-,8,800,0.016,0
+
+# Notes sur les paramètres:
+# - Ouverture: f-number (ex: 4 = f/4, 5.6 = f/5.6)
+# - ISO: valeur ISO (ex: 1600, 800, 400)
+# - Vitesse: en secondes (ex: 1 = 1s, 0.008 = 1/125s, 0.004 = 1/250s)
+# - MLU: délai Mirror Lock-Up en millisecondes (0 = désactivé)
