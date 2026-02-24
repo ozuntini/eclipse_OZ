@@ -5,10 +5,8 @@ Tests camera connection, configuration, and capture functionality.
 """
 
 import unittest
-from unittest.mock import Mock, patch, MagicMock
-from datetime import time
 
-from config.eclipse_config import CameraSettings, CameraStatus
+from config.eclipse_config import CameraSettings
 from hardware.camera_controller import CameraController, format_gphoto2_aperture, format_gphoto2_shutter
 
 
@@ -208,7 +206,7 @@ class TestCameraControllerWithRealGPhoto2(unittest.TestCase):
     def setUp(self):
         """Set up test fixtures."""
         try:
-            import gphoto2
+            import gphoto2  # noqa: F401
             self.gphoto2_available = True
         except ImportError:
             self.gphoto2_available = False
@@ -232,7 +230,7 @@ class TestCameraControllerWithRealGPhoto2(unittest.TestCase):
             
             # Test configuration
             settings = CameraSettings(iso=800, aperture="f/8", shutter="1/60")
-            config_result = self.controller.configure_settings(settings)
+            self.controller.configure_settings(settings)
             
             # Test capture in test mode
             capture_result = self.controller.capture_image(test_mode=True)

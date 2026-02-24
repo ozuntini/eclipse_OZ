@@ -8,35 +8,24 @@ totale entre les deux solutions.
 """
 
 import pytest
-import sys
-import os
 import tempfile
-from datetime import datetime, time
-import subprocess
-import json
 from pathlib import Path
 
 # Import des modules de test spécialisés
 from test_lua_python_comparison import (
     TestTimeConversionComparison,
     TestConfigurationParsingComparison, 
-    TestCameraActionComparison,
-    TestRegressionSuite as ComparisonRegressionSuite
 )
 
 from test_migration_validation import (
-    LuaReferenceFunctions,
     TestExactFunctionMigration,
     TestConfigurationCompatibility,
-    TestRegressionValidation as MigrationRegressionValidation
 )
 
 from test_behavior_compatibility import (
-    LuaActionSimulator,
     TestActionBehaviorComparison,
-    TestMultiCameraCompatibility,
     TestPerformanceRegression,
-    TestRegressionSafety
+    TestRegressionSafety,
 )
 
 
@@ -256,7 +245,7 @@ class TestComprehensiveRegression:
             
             # Test création scheduler  
             time_calc = TimeCalculator()
-            scheduler = ActionScheduler()
+            ActionScheduler()
             
             # Test que toutes les actions peuvent être calculées
             ref_times = {
@@ -308,19 +297,20 @@ class TestComprehensiveRegression:
         compatibility_points = [
             "✅ Fonctions convert_second() - Identiques",
             "✅ Fonctions convert_time() - Identiques", 
-            "✅ Fonctions pretty_time() - Identiques",
-            "✅ Calculs d'intervalle - Identiques",
-            "✅ Parsing configuration SOLARECL.TXT - Compatible",
-            "✅ Actions Photo/Boucle/Interval - Compatibles",
-            "✅ Gestion Mirror Lockup - Compatible",
-            "✅ Timings et synchronisation - Préservés",
-            "✅ Gestion d'erreurs - Améliorée",
-            "✅ Performance - Acceptable",
-            "✅ Sécurité mémoire - Renforcée"
-        ]
-        
-        for point in compatibility_points:
-            print(f"  {point}")
+    def test_configuration_compatibility_regression(self):
+        """Test régression de la compatibilité de configuration"""
+        print("\n🔍 Test régression compatibilité configuration...")
+
+        config_tests = TestConfigurationCompatibility()
+        config_tests.setup_method()
+
+        try:
+           config_tests.test_camera_settings_format_compatibility()
+           print("  ✅ Compatibilité configuration: VALIDÉE")
+        except Exception as e:
+            print(f"  ❌ Compatibilité configuration: ÉCHEC - {e}")
+            raise
+
             
         print("\n🚀 EXTENSIONS PYTHON (non présentes en Lua):")
         extensions = [

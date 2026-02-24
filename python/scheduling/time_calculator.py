@@ -10,8 +10,7 @@ original Magic Lantern Lua script functions:
 
 import time as time_module
 import logging
-from datetime import datetime, time, timedelta
-from typing import Dict, Optional
+from datetime import datetime, time
 
 from ..config.eclipse_config import EclipseTimings
 

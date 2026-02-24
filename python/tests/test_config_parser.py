@@ -11,7 +11,7 @@ from datetime import time
 from pathlib import Path
 
 from config.config_parser import ConfigParser, ConfigParserError
-from config.eclipse_config import EclipseTimings, ActionConfig
+
 
 
 class TestConfigParser(unittest.TestCase):

@@ -6,10 +6,8 @@ Defines the different types of photographic actions that can be scheduled.
 
 from enum import Enum
 from abc import ABC, abstractmethod
-from datetime import time
-from typing import Optional
-
 from ..config.eclipse_config import ActionConfig
+
 
 
 class ActionType(Enum):

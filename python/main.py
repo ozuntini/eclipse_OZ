@@ -14,15 +14,13 @@ Usage:
 import argparse
 import sys
 import signal
-import logging
 from pathlib import Path
 from typing import Optional
-from datetime import datetime
 
 # Import application modules
-from config import ConfigParser, parse_config_file
+from config import parse_config_file
 from config.eclipse_config import SystemConfig
-from hardware import MultiCameraManager, CameraController
+from hardware import MultiCameraManager
 from scheduling import TimeCalculator, ActionScheduler
 from utils import setup_logging, SystemValidator
 from utils.constants import (

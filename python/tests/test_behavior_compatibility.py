@@ -11,9 +11,8 @@ import pytest
 import time
 import tempfile
 import os
-from unittest.mock import Mock, patch, MagicMock
-from datetime import datetime, time as dt_time
-import threading
+from unittest.mock import Mock, patch
+from datetime import time as dt_time
 
 from python.scheduling.action_scheduler import ActionScheduler
 from python.hardware.camera_controller import CameraController
@@ -147,7 +146,6 @@ class TestActionBehaviorComparison:
         mlu_delay = 1000  # 1s mirror lockup
         
         # Test Lua simulation
-        lua_start = time.time()
         lua_duration = self.lua_sim.simulate_take_shoot(iso, aperture, shutter_speed, mlu_delay)
         
         # Test Python avec ActionScheduler
@@ -163,7 +161,7 @@ class TestActionBehaviorComparison:
             scheduler.camera_controller.configure_settings(iso, aperture, shutter_speed)
             if mlu_delay > 0:
                 scheduler.camera_controller.mirror_lockup(mlu_delay)
-            result = scheduler.camera_controller.capture_image()
+            scheduler.camera_controller.capture_image()
             python_duration = time.time() - python_start
             
         # Validation que les timings sont comparables (±10%)
@@ -242,8 +240,8 @@ class TestActionBehaviorComparison:
             f"Intervalle Interval différent: Lua {lua_interval} vs Python {python_interval}"
         )
         
-        expected_photos = min(photo_count, duration // python_interval)
         assert len(lua_photos) <= photo_count, (
+
             f"Trop de photos Lua: {len(lua_photos)} > {photo_count}"
         )
     
@@ -457,7 +455,7 @@ class TestRegressionSafety:
             
         try:
             config_parser = ConfigParser()
-            config = config_parser.parse_eclipse_config(temp_path)
+            config_parser.parse_eclipse_config(temp_path)
             
             final_memory = process.memory_info().rss
             memory_increase = final_memory - initial_memory

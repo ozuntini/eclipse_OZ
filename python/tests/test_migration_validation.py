@@ -11,13 +11,11 @@ import pytest
 import math
 import tempfile
 import os
-from datetime import time, datetime
-from unittest.mock import Mock, patch
+from datetime import time
 
 from python.config.parser import ConfigParser
 from python.scheduling.time_calculator import TimeCalculator
-from python.scheduling.action_scheduler import ActionScheduler
-from python.hardware.camera_controller import CameraController
+
 
 
 class LuaReferenceFunctions:
@@ -602,7 +600,7 @@ Boucle,C3,+,0,5,0,C4,-,0,1,0,60,8,200,30,0
             }
         ]
         
-        lua_ref = LuaReferenceFunctions()
+        # lua_ref supprimé car non utilisé
         time_calc = TimeCalculator()
         
         for case in test_cases:

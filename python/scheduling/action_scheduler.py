@@ -8,7 +8,7 @@ scheduling logic with Python equivalents.
 import logging
 import time
 from datetime import datetime, time as time_obj
-from typing import List, Dict, Any, Optional
+from typing import Dict, Any
 
 from .time_calculator import TimeCalculator
 from .action_types import create_action, ActionType

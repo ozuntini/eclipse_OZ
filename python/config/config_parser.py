@@ -8,7 +8,7 @@ and converts it to Python data structures.
 import re
 import logging
 from datetime import time
-from typing import Dict, Any, List, Optional
+from typing import List, Optional
 from pathlib import Path
 
 from .eclipse_config import (

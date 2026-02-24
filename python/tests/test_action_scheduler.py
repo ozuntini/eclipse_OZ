@@ -5,14 +5,14 @@ Tests the execution of photographic actions with proper timing.
 """
 
 import unittest
-from unittest.mock import Mock, patch, MagicMock
-from datetime import time, datetime
-import time as time_module
+from unittest.mock import Mock, patch
+from datetime import time
 
-from config.eclipse_config import EclipseTimings, ActionConfig, CameraSettings
+from config.eclipse_config import EclipseTimings, ActionConfig
 from scheduling.time_calculator import TimeCalculator
 from scheduling.action_scheduler import ActionScheduler
 from hardware.multi_camera_manager import MultiCameraManager
+
 
 
 class TestActionScheduler(unittest.TestCase):

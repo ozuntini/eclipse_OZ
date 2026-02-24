@@ -7,8 +7,8 @@ Provides camera connection, configuration, and capture functionality.
 
 import logging
 import time
-from typing import Optional, Dict, Any, List
-from pathlib import Path
+from typing import Optional
+
 
 # Import gphoto2 with fallback for development/testing
 try:
