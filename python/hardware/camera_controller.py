@@ -7,8 +7,8 @@ Provides camera connection, configuration, and capture functionality.
 
 import logging
 import time
-from typing import Optional, Dict, Any, List
-from pathlib import Path
+from typing import Optional
+
 
 # Import gphoto2 with fallback for development/testing
 try:
@@ -343,7 +343,9 @@ class CameraController:
             value = gp.gp_widget_get_value(widget)
             
             if value_type == int:
-                return int(value) if value.isdigit() else None
+                # Strip non-digit characters (e.g., "85%" -> "85")
+                digits = ''.join(c for c in str(value) if c.isdigit())
+                return int(digits) if digits else None
             return value
             
         except Exception:
@@ -410,6 +412,9 @@ def format_gphoto2_shutter(seconds: float) -> str:
     Returns:
         GPhoto2-compatible shutter string (e.g., "1/125", "2")
     """
+    if seconds <= 0:
+        raise ValueError(f"Shutter speed must be positive, got {seconds}")
+    
     if seconds >= 1:
         if seconds.is_integer():
             return str(int(seconds))
@@ -417,8 +422,8 @@ def format_gphoto2_shutter(seconds: float) -> str:
             return f"{seconds:.1f}"
     else:
         # Convert to fraction
-        fraction = 1 / seconds
-        if fraction.is_integer():
+        fraction = 1.0 / seconds
+        if fraction == int(fraction):
             return f"1/{int(fraction)}"
         else:
             return f"1/{fraction:.0f}"

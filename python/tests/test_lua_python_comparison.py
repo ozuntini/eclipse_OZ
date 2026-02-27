@@ -7,26 +7,16 @@ Vérifie que les deux solutions produisent exactement les mêmes résultats.
 import pytest
 import os
 import sys
-from datetime import datetime
-from typing import Dict, Any, List
-import json
-import tempfile
 
 # Ajouter le répertoire parent au path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import des modules Python
-from config.parser import ConfigParser, EclipseTimings, ActionConfig
-from scheduling.time_calculator import TimeCalculator
-from scheduling.action_scheduler import ActionScheduler
-from hardware.camera_controller import CameraController
-from hardware.multi_camera_manager import MultiCameraManager
-from main import EclipsePhotographyController
+from config.parser import ConfigParser  # noqa: E402
+from scheduling.time_calculator import TimeCalculator  # noqa: E402
 
-# Import du simulateur Lua
-from lua_simulator import run_lua_simulation, LuaSimulator
-comportements que le script Lua original eclipse_OZ.lua.
-"""
+from lua_simulator import LuaSimulator  # noqa: E402
+
 
 import pytest
 import os

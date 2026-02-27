@@ -1,0 +1,28 @@
+./run_comparison_tests.py:18:1: E402 module level import not at top of file
+./run_comparison_tests.py:19:1: E402 module level import not at top of file
+./test_comparison_final.py:7:1: F401 'os' imported but unused
+./test_comparison_final.py:12:1: E402 module level import not at top of file
+./test_lua_simple.py:8:1: E402 module level import not at top of file
+./test_simple_comparison.py:7:1: F401 'os' imported but unused
+./test_simple_comparison.py:10:1: E402 module level import not at top of file
+./test_simple_comparison.py:174:5: F841 local variable 'all_match' is assigned to but never used
+./tests\test_complete_regression.py:297:33: E999 SyntaxError: '[' was never closed
+./tests\test_config_parser.py:9:1: F401 'os' imported but unused
+./tests\test_lua_python_comparison.py:18:1: F401 'lua_simulator.LuaSimulator' imported but unused
+./tests\test_lua_python_comparison.py:21:1: E402 module level import not at top of file
+./tests\test_lua_python_comparison.py:22:1: E402 module level import not at top of file
+./tests\test_lua_python_comparison.py:23:1: F401 'datetime.datetime' imported but unused
+./tests\test_lua_python_comparison.py:23:1: E402 module level import not at top of file
+./tests\test_lua_python_comparison.py:24:1: E402 module level import not at top of file
+./tests\test_lua_python_comparison.py:25:1: E402 module level import not at top of file
+./tests\test_lua_python_comparison.py:268:9: F841 local variable 'actions_lua' is assigned to but never used
+./tests\test_lua_python_comparison_new.py:219:26: F821 undefined name 'EclipsePhotographyController'
+./tests\test_lua_python_comparison_new.py:243:47: F821 undefined name 'Dict'
+./tests\test_lua_python_comparison_new.py:243:57: F821 undefined name 'Any'
+./tests\test_lua_python_comparison_new.py:340:39: F821 undefined name 'Dict'
+./tests\test_lua_python_comparison_new.py:340:49: F821 undefined name 'Any'
+./utils\validation.py:13:1: F401 'typing.Dict' imported but unused
+./utils\validation.py:13:1: F401 'typing.List' imported but unused
+./utils\validation.py:13:1: F401 'typing.Tuple' imported but unused
+./utils\validation.py:17:1: F401 '.constants.ERROR_MESSAGES' imported but unused
+./utils\validation.py:191:17: F401 'gphoto2' imported but unused

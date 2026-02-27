@@ -7,22 +7,18 @@ Exécute les deux versions avec les mêmes paramètres et compare les résultats
 import pytest
 import os
 import sys
-import subprocess
 import tempfile
-from typing import Dict, Any, List
-import json
 
 # Ajouter le répertoire parent au path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import des modules Python
-from config.parser import ConfigParser, EclipseTimings, ActionConfig
-from scheduling.time_calculator import TimeCalculator
-from scheduling.action_scheduler import ActionScheduler
-from main import EclipsePhotographyController
+from config.parser import ConfigParser  # noqa: E402
+from scheduling.time_calculator import TimeCalculator  # noqa: E402
 
 # Import du simulateur Lua
-from lua_simulator import run_lua_simulation, LuaSimulator
+from lua_simulator import run_lua_simulation, LuaSimulator  # noqa: E402
+
 
 
 class TestLuaPythonComparison:

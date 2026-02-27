@@ -7,7 +7,7 @@ across all connected cameras.
 
 import threading
 import logging
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Any
 import time
 
 # Import with fallback for development

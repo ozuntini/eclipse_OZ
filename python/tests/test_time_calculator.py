@@ -7,8 +7,8 @@ original Magic Lantern Lua script.
 
 import unittest
 from datetime import time
-from unittest.mock import patch, MagicMock
-import time as time_module
+from unittest.mock import patch
+
 
 from config.eclipse_config import EclipseTimings
 from scheduling.time_calculator import TimeCalculator

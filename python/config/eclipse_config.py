@@ -53,6 +53,8 @@ class VerificationConfig:
     check_autofocus: bool = True
     min_battery_level: Optional[int] = None  # Percentage
     min_free_space_mb: Optional[int] = None
+    expected_mode: Optional[str] = None      # Expected camera mode (e.g., '3' for Manual)
+    expected_af: bool = False                # Expected AF state (False = AF off for eclipse)
 
 
 @dataclass
