@@ -335,7 +335,8 @@ def main() -> int:
     
     # Set up signal handlers
     signal.signal(signal.SIGINT, controller.signal_handler)
-    signal.signal(signal.SIGTERM, controller.signal_handler)
+    if hasattr(signal, 'SIGTERM'):
+        signal.signal(signal.SIGTERM, controller.signal_handler)
     
     # Run the application
     return controller.run()

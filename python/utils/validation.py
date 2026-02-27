@@ -6,7 +6,6 @@ is ready for eclipse photography.
 """
 
 import logging
-import os
 import platform
 import shutil
 from pathlib import Path
@@ -224,9 +223,9 @@ class SystemValidator:
     def _validate_storage_space(self) -> bool:
         """Validate available storage space on system."""
         try:
-            # Check current directory space
-            stat = os.statvfs('.')
-            free_space_mb = (stat.f_bavail * stat.f_frsize) / (1024 * 1024)
+            # Check current directory space (cross-platform)
+            usage = shutil.disk_usage('.')
+            free_space_mb = usage.free / (1024 * 1024)
             
             if free_space_mb < 1000:  # Require at least 1GB
                 self.logger.error(f"Insufficient storage space: {free_space_mb:.0f}MB available")

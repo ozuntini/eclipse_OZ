@@ -191,35 +191,82 @@ class ConfigParser:
         """
         Parse Verif line with camera verification settings.
         
-        Expected format (simplified for now):
-        Verif,battery_check,storage_check,mode_check,af_check
+        Original SOLARECL.TXT format:
+        Verif,Mode,AF,Battery,FreeSpace
+        
+        Values of '-' mean 'do not check'.
+        Example: Verif,3,0,20,4000
         """
-        # Basic implementation - can be extended based on original format
-        return VerificationConfig()
+        if len(fields) < 5:
+            self.logger.warning(f"Line {line_num}: Verif line has {len(fields)} fields, expected 5")
+            return VerificationConfig()
+        
+        try:
+            expected_mode = fields[1].strip() if fields[1].strip() != '-' else None
+            expected_af = fields[2].strip() if fields[2].strip() != '-' else None
+            min_battery = fields[3].strip() if fields[3].strip() != '-' else None
+            min_free_space = fields[4].strip() if fields[4].strip() != '-' else None
+            
+            return VerificationConfig(
+                check_mode=(expected_mode is not None),
+                check_autofocus=(expected_af is not None),
+                check_battery=(min_battery is not None),
+                check_storage=(min_free_space is not None),
+                expected_mode=expected_mode,
+                expected_af=(expected_af == '0') if expected_af is not None else False,
+                min_battery_level=int(min_battery) if min_battery else None,
+                min_free_space_mb=int(min_free_space) if min_free_space else None
+            )
+        except (ValueError, IndexError) as e:
+            self.logger.warning(f"Line {line_num}: Error parsing Verif line: {e}")
+            return VerificationConfig()
     
     def _parse_action(self, fields: List[str], line_num: int) -> ActionConfig:
         """
         Parse action line (Photo, Boucle, or Interval).
         
-        Expected formats:
-        Photo,time_ref,start_op,start_time,_,_,_,_,_,aperture,iso,shutter,mlu
-        Boucle,time_ref,start_op,start_time,end_op,end_time,interval,_,_,aperture,iso,shutter,mlu
-        Interval,time_ref,start_op,start_time,end_op,end_time,count,_,_,aperture,iso,shutter,mlu
+        Supports two formats:
+        
+        Original SOLARECL.TXT format (11 fields for Boucle/Interval):
+            Boucle,time_ref,start_op,start_time,end_op,end_time,interval,aperture,iso,shutter,mlu
+            Interval,time_ref,start_op,start_time,end_op,end_time,count,aperture,iso,shutter,mlu
+        
+        Extended format (13 fields, with placeholder dashes):
+            Photo,time_ref,start_op,start_time,_,_,_,_,_,aperture,iso,shutter,mlu
+            Boucle,time_ref,start_op,start_time,end_op,end_time,interval,_,_,aperture,iso,shutter,mlu
+            Interval,time_ref,start_op,start_time,end_op,end_time,count,_,_,aperture,iso,shutter,mlu
         """
-        if len(fields) < 13:
-            raise ConfigParserError(f"{fields[0]} line requires at least 13 fields, got {len(fields)}", line_num)
+        action_type = fields[0]
+        
+        # Determine camera settings offset based on action type and field count
+        if action_type == 'Photo':
+            if len(fields) < 13:
+                raise ConfigParserError(
+                    f"Photo line requires at least 13 fields, got {len(fields)}", line_num)
+            camera_offset = 9
+        elif action_type in ['Boucle', 'Interval']:
+            if len(fields) >= 13:
+                # Extended format with placeholder dashes at positions 7 and 8
+                camera_offset = 9
+            elif len(fields) >= 11:
+                # Original SOLARECL.TXT format (no placeholders)
+                camera_offset = 7
+            else:
+                raise ConfigParserError(
+                    f"{action_type} line requires at least 11 fields, got {len(fields)}", line_num)
+        else:
+            raise ConfigParserError(f"Unknown action type '{action_type}'", line_num)
         
         try:
-            action_type = fields[0]
             time_ref = fields[1]
             start_operator = fields[2]
             start_time = self._parse_time_string(fields[3], line_num)
             
-            # Common camera settings (last 4 fields)
-            aperture = float(fields[9]) if fields[9] and fields[9] != '-' else None
-            iso = int(fields[10]) if fields[10] and fields[10] != '-' else None
-            shutter_speed = float(fields[11]) if fields[11] and fields[11] != '-' else None
-            mlu_delay = int(fields[12]) if fields[12] and fields[12] != '-' else 0
+            # Camera settings at detected offset
+            aperture = float(fields[camera_offset]) if fields[camera_offset] and fields[camera_offset] != '-' else None
+            iso = int(float(fields[camera_offset + 1])) if fields[camera_offset + 1] and fields[camera_offset + 1] != '-' else None
+            shutter_speed = float(fields[camera_offset + 2]) if fields[camera_offset + 2] and fields[camera_offset + 2] != '-' else None
+            mlu_delay = int(float(fields[camera_offset + 3])) if fields[camera_offset + 3] and fields[camera_offset + 3] != '-' else 0
             
             # Validate time reference
             if time_ref not in ['C1', 'C2', 'Max', 'C3', 'C4', '-']:

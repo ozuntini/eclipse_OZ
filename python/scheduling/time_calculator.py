@@ -117,6 +117,29 @@ class TimeCalculator:
         
         return result_time
     
+    def convert_relative_time_from_absolute(self, base_time: time, operator: str, offset_time: time) -> time:
+        """
+        Convert relative time from an absolute base time.
+        
+        Args:
+            base_time: Absolute base time
+            operator: '+' for addition, '-' for subtraction
+            offset_time: Time offset to apply
+            
+        Returns:
+            Calculated absolute time
+        """
+        base_seconds = self.time_to_seconds(base_time)
+        offset_seconds = self.time_to_seconds(offset_time)
+        
+        if operator == '+':
+            result_seconds = base_seconds + offset_seconds
+        else:
+            result_seconds = base_seconds - offset_seconds
+        
+        result_seconds = result_seconds % 86400
+        return self.seconds_to_time(result_seconds)
+    
     def wait_until(self, target_time: time, check_interval: float = 0.25, progress_interval: int = 20):
         """
         Wait until the specified target time is reached.
@@ -135,12 +158,22 @@ class TimeCalculator:
             now_seconds = self.time_to_seconds(now)
             target_seconds = self.time_to_seconds(target_time)
             
-            # Handle day boundary crossing
-            if target_seconds < now_seconds:
-                # Target is tomorrow
-                target_seconds += 86400
-            
             remaining = target_seconds - now_seconds
+            
+            # If target is in the past by less than 30 seconds, consider it reached
+            if -30 <= remaining <= 0:
+                self.logger.info(f"Target time {target_time} reached (delta: {remaining}s)")
+                break
+            
+            # If target is in the past by more than 30s, it likely already passed
+            # Only wait for tomorrow if the difference is very large (> 12 hours)
+            if remaining < -30:
+                if abs(remaining) < 43200:  # Less than 12 hours ago
+                    self.logger.warning(f"Target time {target_time} already passed by {abs(remaining)}s, proceeding")
+                    break
+                else:
+                    # Target is tomorrow
+                    remaining += 86400
             
             # Check if we've reached the target
             if remaining <= 0:

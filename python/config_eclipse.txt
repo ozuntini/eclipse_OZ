@@ -19,8 +19,8 @@ Photo,Max,-,00:00:10,-,-,-,-,-,4,1600,1,500
 Photo,C2,+,00:00:30,-,-,-,-,-,5.6,800,0.5,0
 
 # Boucle de photos pendant la totalité
-# Début 1 minute après C2, fin 1 minute avant C3, une photo toutes les 5 secondes
-Boucle,C2,+,00:01:00,-,00:01:00,5,-,-,8,400,0.008,0
+# Début 10s après C2, fin 1min50s après C2 (dans la totalité), une photo toutes les 5 secondes
+Boucle,C2,+,00:00:10,+,00:01:50,5,-,-,8,400,0.008,0
 
 # Série de 10 photos réparties sur 2 minutes autour du maximum
 Interval,Max,-,00:01:00,+,00:01:00,10,-,-,11,200,0.004,1000

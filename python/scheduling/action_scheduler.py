@@ -109,12 +109,19 @@ class ActionScheduler:
             if not self._configure_cameras_for_action(action):
                 return False
             
-            # Apply mirror lockup if specified
+            # Wait until trigger time, accounting for mirror lockup delay
+            # Lua equivalent: waits until timeStart - (mluDelay/1000)
             if action.mlu_delay > 0:
+                mlu_seconds = action.mlu_delay / 1000.0
+                trigger_seconds = self.time_calculator.time_to_seconds(trigger_time)
+                early_seconds = trigger_seconds - int(mlu_seconds + 1)
+                if early_seconds < 0:
+                    early_seconds += 86400
+                early_trigger = self.time_calculator.seconds_to_time(early_seconds)
+                self.time_calculator.wait_until(early_trigger)
                 self._apply_mirror_lockup(action.mlu_delay)
-            
-            # Wait until trigger time
-            self.time_calculator.wait_until(trigger_time)
+            else:
+                self.time_calculator.wait_until(trigger_time)
             
             # Execute capture
             self.logger.info(f"Triggering photo capture at {datetime.now().time()}")
@@ -157,17 +164,28 @@ class ActionScheduler:
             
             self.logger.info(f"Loop action: {start_time} -> {end_time}, interval: {interval_seconds}s")
             
-            # Validate interval
+            # Validate and enforce minimum interval (like Lua: minimum 1s)
             if interval_seconds <= 0:
                 self.logger.error("Invalid interval for loop action")
                 return False
+            if interval_seconds < 1:
+                interval_seconds = 1
+                self.logger.warning("Loop interval set to minimum 1s")
             
             # Configure cameras
             if not self._configure_cameras_for_action(action):
                 return False
             
-            # Wait for start time
-            self.time_calculator.wait_until(start_time)
+            # Wait for start time, accounting for MLU delay
+            if action.mlu_delay > 0:
+                mlu_seconds = action.mlu_delay / 1000.0
+                wait_target_seconds = self.time_calculator.time_to_seconds(start_time) - int(mlu_seconds + 1)
+                if wait_target_seconds < 0:
+                    wait_target_seconds += 86400
+                wait_target = self.time_calculator.seconds_to_time(wait_target_seconds)
+                self.time_calculator.wait_until(wait_target)
+            else:
+                self.time_calculator.wait_until(start_time)
             
             # Execute loop
             loop_start_time = time.time()
@@ -180,7 +198,13 @@ class ActionScheduler:
                 end_seconds = self.time_calculator.time_to_seconds(end_time)
                 
                 # Check if we've passed the end time
-                if current_seconds >= end_seconds:
+                # Also check that the next capture fits within the window
+                if current_seconds > end_seconds:
+                    break
+                
+                # Check if there's still enough time for one more capture
+                remaining = end_seconds - current_seconds
+                if remaining < 0:
                     break
                 
                 # Check if it's time for next capture
