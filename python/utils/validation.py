@@ -11,8 +11,8 @@ import shutil
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
-from ..config.eclipse_config import SystemConfig, VerificationConfig, CameraStatus
-from ..hardware.multi_camera_manager import MultiCameraManager
+from config.eclipse_config import SystemConfig, VerificationConfig, CameraStatus
+from hardware.multi_camera_manager import MultiCameraManager
 from .constants import MIN_BATTERY_LEVEL, MIN_FREE_SPACE_MB, ERROR_MESSAGES
 
 
@@ -320,7 +320,7 @@ class SystemValidator:
         """Validate eclipse timing sequence."""
         try:
             # Use time calculator for validation
-            from ..scheduling.time_calculator import TimeCalculator
+            from scheduling.time_calculator import TimeCalculator
             calculator = TimeCalculator(config.eclipse_timings)
             return calculator.validate_eclipse_sequence()
             
@@ -336,7 +336,7 @@ class SystemValidator:
                 return False
             
             # Validate each action
-            from ..scheduling.action_types import create_action
+            from scheduling.action_types import create_action
             
             for i, action_config in enumerate(config.actions):
                 try:

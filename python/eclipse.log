@@ -1,0 +1,670 @@
+2026-02-28 23:20:30 - root - INFO - Logging initialized at DEBUG level
+2026-02-28 23:20:30 - root - INFO - Log file: eclipse.log
+2026-02-28 23:20:30 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-02-28 23:20:30 - root - INFO - Initializing with config: config_eclipse.txt
+2026-02-28 23:20:30 - root - INFO - Loading configuration...
+2026-02-28 23:20:30 - root - INFO - Configuration loaded: 5 actions
+2026-02-28 23:20:30 - root - INFO - Test mode: ENABLED
+2026-02-28 23:20:30 - system_validator - INFO - Starting system validation...
+2026-02-28 23:20:30 - system_validator - DEBUG - Python 3.13 is compatible
+2026-02-28 23:20:30 - system_validator - DEBUG - gphoto2 Python module available
+2026-02-28 23:20:30 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-02-28 23:20:30 - system_validator - DEBUG - Storage space available: 5907MB
+2026-02-28 23:20:30 - system_validator - INFO - ✓ python_version
+2026-02-28 23:20:30 - system_validator - INFO - ✓ gphoto2_availability
+2026-02-28 23:20:30 - system_validator - INFO - ✓ usb_permissions
+2026-02-28 23:20:30 - system_validator - INFO - ✓ storage_space
+2026-02-28 23:20:30 - system_validator - INFO - ✓ time_sync
+2026-02-28 23:20:30 - system_validator - INFO - System validation passed
+2026-02-28 23:20:30 - system_validator - INFO - Validating eclipse configuration...
+2026-02-28 23:20:30 - system_validator - ERROR - Error validating eclipse timings: attempted relative import beyond top-level package
+2026-02-28 23:20:30 - system_validator - ERROR - Error validating action sequence: attempted relative import beyond top-level package
+2026-02-28 23:20:30 - system_validator - INFO - ✗ eclipse_timings
+2026-02-28 23:20:30 - system_validator - INFO - ✗ action_sequence
+2026-02-28 23:20:30 - system_validator - INFO - ✓ camera_settings
+2026-02-28 23:20:30 - system_validator - ERROR - Configuration validation failed
+2026-02-28 23:20:30 - root - ERROR - Configuration validation failed
+2026-02-28 23:36:22 - root - INFO - Logging initialized at DEBUG level
+2026-02-28 23:36:22 - root - INFO - Log file: eclipse.log
+2026-02-28 23:36:22 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-02-28 23:36:22 - root - INFO - Initializing with config: config_eclipse.txt
+2026-02-28 23:36:22 - root - INFO - Loading configuration...
+2026-02-28 23:36:22 - root - INFO - Configuration loaded: 5 actions
+2026-02-28 23:36:22 - root - INFO - Test mode: ENABLED
+2026-02-28 23:36:22 - system_validator - INFO - Starting system validation...
+2026-02-28 23:36:22 - system_validator - DEBUG - Python 3.13 is compatible
+2026-02-28 23:36:22 - system_validator - DEBUG - gphoto2 Python module available
+2026-02-28 23:36:22 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-02-28 23:36:22 - system_validator - DEBUG - Storage space available: 5907MB
+2026-02-28 23:36:22 - system_validator - INFO - ✓ python_version
+2026-02-28 23:36:22 - system_validator - INFO - ✓ gphoto2_availability
+2026-02-28 23:36:22 - system_validator - INFO - ✓ usb_permissions
+2026-02-28 23:36:22 - system_validator - INFO - ✓ storage_space
+2026-02-28 23:36:22 - system_validator - INFO - ✓ time_sync
+2026-02-28 23:36:22 - system_validator - INFO - System validation passed
+2026-02-28 23:36:22 - system_validator - INFO - Validating eclipse configuration...
+2026-02-28 23:36:22 - system_validator - ERROR - Error validating eclipse timings: attempted relative import beyond top-level package
+2026-02-28 23:36:22 - system_validator - ERROR - Error validating action sequence: attempted relative import beyond top-level package
+2026-02-28 23:36:22 - system_validator - INFO - ✗ eclipse_timings
+2026-02-28 23:36:22 - system_validator - INFO - ✗ action_sequence
+2026-02-28 23:36:22 - system_validator - INFO - ✓ camera_settings
+2026-02-28 23:36:22 - system_validator - ERROR - Configuration validation failed
+2026-02-28 23:36:22 - root - ERROR - Configuration validation failed
+2026-02-28 23:42:22 - root - INFO - Logging initialized at DEBUG level
+2026-02-28 23:42:22 - root - INFO - Log file: eclipse.log
+2026-02-28 23:42:22 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-02-28 23:42:22 - root - INFO - Initializing with config: config_eclipse.txt
+2026-02-28 23:42:22 - root - INFO - Loading configuration...
+2026-02-28 23:42:22 - root - INFO - Configuration loaded: 5 actions
+2026-02-28 23:42:22 - root - INFO - Test mode: ENABLED
+2026-02-28 23:42:22 - system_validator - INFO - Starting system validation...
+2026-02-28 23:42:22 - system_validator - DEBUG - Python 3.13 is compatible
+2026-02-28 23:42:22 - system_validator - DEBUG - gphoto2 Python module available
+2026-02-28 23:42:22 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-02-28 23:42:22 - system_validator - DEBUG - Storage space available: 5907MB
+2026-02-28 23:42:22 - system_validator - INFO - ✓ python_version
+2026-02-28 23:42:22 - system_validator - INFO - ✓ gphoto2_availability
+2026-02-28 23:42:22 - system_validator - INFO - ✓ usb_permissions
+2026-02-28 23:42:22 - system_validator - INFO - ✓ storage_space
+2026-02-28 23:42:22 - system_validator - INFO - ✓ time_sync
+2026-02-28 23:42:22 - system_validator - INFO - System validation passed
+2026-02-28 23:42:22 - system_validator - INFO - Validating eclipse configuration...
+2026-02-28 23:42:22 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-02-28 23:42:22 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/4.0 1.0s
+2026-02-28 23:42:22 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/5.6 0.5s
+2026-02-28 23:42:22 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-02-28 23:42:22 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-02-28 23:42:22 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-02-28 23:42:22 - system_validator - INFO - ✓ eclipse_timings
+2026-02-28 23:42:22 - system_validator - INFO - ✓ action_sequence
+2026-02-28 23:42:22 - system_validator - INFO - ✓ camera_settings
+2026-02-28 23:42:22 - system_validator - INFO - Configuration validation passed
+2026-02-28 23:42:22 - root - INFO - Initializing camera system...
+2026-02-28 23:42:22 - multi_camera_manager - INFO - Discovering cameras...
+2026-02-28 23:42:23 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-02-28 23:42:23 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 12:04:24 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 12:04:24 - root - INFO - Log file: eclipse.log
+2026-03-01 12:04:24 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 12:04:24 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 12:04:24 - root - INFO - Loading configuration...
+2026-03-01 12:04:24 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 12:04:24 - root - INFO - Test mode: ENABLED
+2026-03-01 12:04:24 - system_validator - INFO - Starting system validation...
+2026-03-01 12:04:24 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 12:04:24 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 12:04:24 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 12:04:24 - system_validator - DEBUG - Storage space available: 5886MB
+2026-03-01 12:04:24 - system_validator - INFO - ✓ python_version
+2026-03-01 12:04:24 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 12:04:24 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 12:04:24 - system_validator - INFO - ✓ storage_space
+2026-03-01 12:04:24 - system_validator - INFO - ✓ time_sync
+2026-03-01 12:04:24 - system_validator - INFO - System validation passed
+2026-03-01 12:04:24 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 12:04:24 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 12:04:24 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/4.0 1.0s
+2026-03-01 12:04:24 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/5.6 0.5s
+2026-03-01 12:04:24 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 12:04:24 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 12:04:24 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 12:04:24 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 12:04:24 - system_validator - INFO - ✓ action_sequence
+2026-03-01 12:04:24 - system_validator - INFO - ✓ camera_settings
+2026-03-01 12:04:24 - system_validator - INFO - Configuration validation passed
+2026-03-01 12:04:24 - root - INFO - Initializing camera system...
+2026-03-01 12:04:24 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 12:04:25 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 12:04:25 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 12:23:32 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 12:23:32 - root - INFO - Log file: eclipse.log
+2026-03-01 12:23:32 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 12:23:32 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 12:23:32 - root - INFO - Loading configuration...
+2026-03-01 12:23:32 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 12:23:32 - root - INFO - Test mode: ENABLED
+2026-03-01 12:23:32 - system_validator - INFO - Starting system validation...
+2026-03-01 12:23:32 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 12:23:32 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 12:23:32 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 12:23:32 - system_validator - DEBUG - Storage space available: 5886MB
+2026-03-01 12:23:32 - system_validator - INFO - ✓ python_version
+2026-03-01 12:23:32 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 12:23:32 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 12:23:32 - system_validator - INFO - ✓ storage_space
+2026-03-01 12:23:32 - system_validator - INFO - ✓ time_sync
+2026-03-01 12:23:32 - system_validator - INFO - System validation passed
+2026-03-01 12:23:32 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 12:23:32 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 12:23:32 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/4.0 1.0s
+2026-03-01 12:23:32 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/5.6 0.5s
+2026-03-01 12:23:32 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 12:23:32 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 12:23:32 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 12:23:32 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 12:23:32 - system_validator - INFO - ✓ action_sequence
+2026-03-01 12:23:32 - system_validator - INFO - ✓ camera_settings
+2026-03-01 12:23:32 - system_validator - INFO - Configuration validation passed
+2026-03-01 12:23:32 - root - INFO - Initializing camera system...
+2026-03-01 12:23:32 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 12:23:32 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 12:23:32 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 12:24:21 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 12:24:21 - root - INFO - Log file: eclipse.log
+2026-03-01 12:24:21 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 12:24:21 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 12:24:21 - root - INFO - Loading configuration...
+2026-03-01 12:24:21 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 12:24:21 - root - INFO - Test mode: ENABLED
+2026-03-01 12:24:21 - system_validator - INFO - Starting system validation...
+2026-03-01 12:24:21 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 12:24:21 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 12:24:21 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 12:24:21 - system_validator - DEBUG - Storage space available: 5886MB
+2026-03-01 12:24:21 - system_validator - INFO - ✓ python_version
+2026-03-01 12:24:21 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 12:24:21 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 12:24:21 - system_validator - INFO - ✓ storage_space
+2026-03-01 12:24:21 - system_validator - INFO - ✓ time_sync
+2026-03-01 12:24:21 - system_validator - INFO - System validation passed
+2026-03-01 12:24:21 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 12:24:21 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 12:24:21 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/4.0 1.0s
+2026-03-01 12:24:21 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/5.6 0.5s
+2026-03-01 12:24:21 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 12:24:21 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 12:24:21 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 12:24:21 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 12:24:21 - system_validator - INFO - ✓ action_sequence
+2026-03-01 12:24:21 - system_validator - INFO - ✓ camera_settings
+2026-03-01 12:24:21 - system_validator - INFO - Configuration validation passed
+2026-03-01 12:24:21 - root - INFO - Initializing camera system...
+2026-03-01 12:24:21 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 12:24:22 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 12:24:22 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 12:34:48 - root - INFO - Logging initialized at INFO level
+2026-03-01 12:34:48 - root - INFO - Log file: eclipse.log
+2026-03-01 12:34:48 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 12:34:48 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 12:34:48 - root - INFO - Loading configuration...
+2026-03-01 12:34:48 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 12:34:48 - root - INFO - Test mode: ENABLED
+2026-03-01 12:34:48 - system_validator - INFO - Starting system validation...
+2026-03-01 12:34:48 - system_validator - INFO - ✓ python_version
+2026-03-01 12:34:48 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 12:34:48 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 12:34:48 - system_validator - INFO - ✓ storage_space
+2026-03-01 12:34:48 - system_validator - INFO - ✓ time_sync
+2026-03-01 12:34:48 - system_validator - INFO - System validation passed
+2026-03-01 12:34:48 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 12:34:48 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 12:34:48 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 12:34:48 - system_validator - INFO - ✓ action_sequence
+2026-03-01 12:34:48 - system_validator - INFO - ✓ camera_settings
+2026-03-01 12:34:48 - system_validator - INFO - Configuration validation passed
+2026-03-01 12:34:48 - root - INFO - Initializing camera system...
+2026-03-01 12:34:48 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 12:34:48 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 12:34:48 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 12:36:21 - root - INFO - Logging initialized at INFO level
+2026-03-01 12:36:21 - root - INFO - Log file: eclipse.log
+2026-03-01 12:36:21 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 12:36:21 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 12:36:21 - root - INFO - Loading configuration...
+2026-03-01 12:36:21 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 12:36:21 - root - INFO - Test mode: ENABLED
+2026-03-01 12:36:21 - system_validator - INFO - Starting system validation...
+2026-03-01 12:36:21 - system_validator - INFO - ✓ python_version
+2026-03-01 12:36:21 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 12:36:21 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 12:36:21 - system_validator - INFO - ✓ storage_space
+2026-03-01 12:36:21 - system_validator - INFO - ✓ time_sync
+2026-03-01 12:36:21 - system_validator - INFO - System validation passed
+2026-03-01 12:36:21 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 12:36:21 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 12:36:21 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 12:36:21 - system_validator - INFO - ✓ action_sequence
+2026-03-01 12:36:21 - system_validator - INFO - ✓ camera_settings
+2026-03-01 12:36:21 - system_validator - INFO - Configuration validation passed
+2026-03-01 12:36:21 - root - INFO - Initializing camera system...
+2026-03-01 12:36:21 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 12:36:21 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 12:36:21 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 12:36:26 - root - INFO - Logging initialized at INFO level
+2026-03-01 12:36:26 - root - INFO - Log file: eclipse.log
+2026-03-01 12:36:26 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 12:36:26 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 12:36:26 - root - INFO - Loading configuration...
+2026-03-01 12:36:26 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 12:36:26 - root - INFO - Test mode: ENABLED
+2026-03-01 12:36:26 - system_validator - INFO - Starting system validation...
+2026-03-01 12:36:26 - system_validator - INFO - ✓ python_version
+2026-03-01 12:36:26 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 12:36:26 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 12:36:26 - system_validator - INFO - ✓ storage_space
+2026-03-01 12:36:26 - system_validator - INFO - ✓ time_sync
+2026-03-01 12:36:26 - system_validator - INFO - System validation passed
+2026-03-01 12:36:26 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 12:36:26 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 12:36:26 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 12:36:26 - system_validator - INFO - ✓ action_sequence
+2026-03-01 12:36:26 - system_validator - INFO - ✓ camera_settings
+2026-03-01 12:36:26 - system_validator - INFO - Configuration validation passed
+2026-03-01 12:36:26 - root - INFO - Initializing camera system...
+2026-03-01 12:36:26 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 12:36:26 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 12:36:26 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 13:21:37 - root - INFO - Logging initialized at INFO level
+2026-03-01 13:21:37 - root - INFO - Log file: eclipse.log
+2026-03-01 13:21:37 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 13:21:37 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 13:21:37 - root - INFO - Loading configuration...
+2026-03-01 13:21:37 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 13:21:37 - root - INFO - Test mode: DISABLED
+2026-03-01 13:21:37 - system_validator - INFO - Starting system validation...
+2026-03-01 13:21:37 - system_validator - INFO - ✓ python_version
+2026-03-01 13:21:37 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 13:21:37 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 13:21:37 - system_validator - INFO - ✓ storage_space
+2026-03-01 13:21:37 - system_validator - INFO - ✓ time_sync
+2026-03-01 13:21:37 - system_validator - INFO - System validation passed
+2026-03-01 13:21:37 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 13:21:37 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 13:21:37 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 13:21:37 - system_validator - INFO - ✓ action_sequence
+2026-03-01 13:21:37 - system_validator - INFO - ✓ camera_settings
+2026-03-01 13:21:37 - system_validator - INFO - Configuration validation passed
+2026-03-01 13:21:37 - root - INFO - Initializing camera system...
+2026-03-01 13:21:37 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 13:21:37 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 13:21:37 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 13:22:35 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 13:22:35 - root - INFO - Log file: eclipse.log
+2026-03-01 13:22:35 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 13:22:35 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 13:22:35 - root - INFO - Loading configuration...
+2026-03-01 13:22:35 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 13:22:35 - root - INFO - Test mode: DISABLED
+2026-03-01 13:22:35 - system_validator - INFO - Starting system validation...
+2026-03-01 13:22:35 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 13:22:35 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 13:22:35 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 13:22:35 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 13:22:35 - system_validator - INFO - ✓ python_version
+2026-03-01 13:22:35 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 13:22:35 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 13:22:35 - system_validator - INFO - ✓ storage_space
+2026-03-01 13:22:35 - system_validator - INFO - ✓ time_sync
+2026-03-01 13:22:35 - system_validator - INFO - System validation passed
+2026-03-01 13:22:35 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 13:22:35 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 13:22:35 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/4.0 1.0s
+2026-03-01 13:22:35 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/5.6 0.5s
+2026-03-01 13:22:35 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 13:22:35 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 13:22:35 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 13:22:35 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 13:22:35 - system_validator - INFO - ✓ action_sequence
+2026-03-01 13:22:35 - system_validator - INFO - ✓ camera_settings
+2026-03-01 13:22:35 - system_validator - INFO - Configuration validation passed
+2026-03-01 13:22:35 - root - INFO - Initializing camera system...
+2026-03-01 13:22:35 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 13:22:35 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 13:22:35 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 13:23:14 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 13:23:14 - root - INFO - Log file: eclipse.log
+2026-03-01 13:23:14 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 13:23:14 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 13:23:14 - root - INFO - Loading configuration...
+2026-03-01 13:23:14 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 13:23:14 - root - INFO - Test mode: DISABLED
+2026-03-01 13:23:14 - system_validator - INFO - Starting system validation...
+2026-03-01 13:23:14 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 13:23:14 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 13:23:14 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 13:23:14 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 13:23:14 - system_validator - INFO - ✓ python_version
+2026-03-01 13:23:14 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 13:23:14 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 13:23:14 - system_validator - INFO - ✓ storage_space
+2026-03-01 13:23:14 - system_validator - INFO - ✓ time_sync
+2026-03-01 13:23:14 - system_validator - INFO - System validation passed
+2026-03-01 13:23:14 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 13:23:14 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 13:23:14 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/4.0 1.0s
+2026-03-01 13:23:14 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/5.6 0.5s
+2026-03-01 13:23:14 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 13:23:14 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 13:23:14 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 13:23:14 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 13:23:14 - system_validator - INFO - ✓ action_sequence
+2026-03-01 13:23:14 - system_validator - INFO - ✓ camera_settings
+2026-03-01 13:23:14 - system_validator - INFO - Configuration validation passed
+2026-03-01 13:23:14 - root - INFO - Initializing camera system...
+2026-03-01 13:23:14 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 13:23:14 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 13:23:14 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 13:26:57 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 13:26:57 - root - INFO - Log file: eclipse.log
+2026-03-01 13:26:57 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 13:26:57 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 13:26:57 - root - INFO - Loading configuration...
+2026-03-01 13:26:57 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 13:26:57 - root - INFO - Test mode: DISABLED
+2026-03-01 13:26:57 - system_validator - INFO - Starting system validation...
+2026-03-01 13:26:57 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 13:26:57 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 13:26:57 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 13:26:57 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 13:26:57 - system_validator - INFO - ✓ python_version
+2026-03-01 13:26:57 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 13:26:57 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 13:26:57 - system_validator - INFO - ✓ storage_space
+2026-03-01 13:26:57 - system_validator - INFO - ✓ time_sync
+2026-03-01 13:26:57 - system_validator - INFO - System validation passed
+2026-03-01 13:26:57 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 13:26:57 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 13:26:57 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/4.0 1.0s
+2026-03-01 13:26:57 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/5.6 0.5s
+2026-03-01 13:26:57 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 13:26:57 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 13:26:57 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 13:26:57 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 13:26:57 - system_validator - INFO - ✓ action_sequence
+2026-03-01 13:26:57 - system_validator - INFO - ✓ camera_settings
+2026-03-01 13:26:57 - system_validator - INFO - Configuration validation passed
+2026-03-01 13:26:57 - root - INFO - Initializing camera system...
+2026-03-01 13:26:57 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 13:26:58 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 13:26:58 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 17:23:58 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 17:23:58 - root - INFO - Log file: eclipse.log
+2026-03-01 17:23:58 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 17:23:58 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 17:23:58 - root - INFO - Loading configuration...
+2026-03-01 17:23:58 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 17:23:58 - root - INFO - Test mode: DISABLED
+2026-03-01 17:23:58 - system_validator - INFO - Starting system validation...
+2026-03-01 17:23:58 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 17:23:58 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 17:23:58 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 17:23:58 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 17:23:58 - system_validator - INFO - ✓ python_version
+2026-03-01 17:23:58 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 17:23:58 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 17:23:58 - system_validator - INFO - ✓ storage_space
+2026-03-01 17:23:58 - system_validator - INFO - ✓ time_sync
+2026-03-01 17:23:58 - system_validator - INFO - System validation passed
+2026-03-01 17:23:58 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 17:23:58 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 17:23:58 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/4.0 1.0s
+2026-03-01 17:23:58 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/5.6 0.5s
+2026-03-01 17:23:58 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 17:23:58 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 17:23:58 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 17:23:58 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 17:23:58 - system_validator - INFO - ✓ action_sequence
+2026-03-01 17:23:58 - system_validator - INFO - ✓ camera_settings
+2026-03-01 17:23:58 - system_validator - INFO - Configuration validation passed
+2026-03-01 17:23:58 - root - INFO - Initializing camera system...
+2026-03-01 17:23:58 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 17:23:59 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 17:23:59 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 17:26:01 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 17:26:01 - root - INFO - Log file: eclipse.log
+2026-03-01 17:26:01 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 17:26:01 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 17:26:01 - root - INFO - Loading configuration...
+2026-03-01 17:26:01 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 17:26:01 - root - INFO - Test mode: DISABLED
+2026-03-01 17:26:01 - system_validator - INFO - Starting system validation...
+2026-03-01 17:26:01 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 17:26:01 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 17:26:01 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 17:26:01 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 17:26:01 - system_validator - INFO - ✓ python_version
+2026-03-01 17:26:01 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 17:26:01 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 17:26:01 - system_validator - INFO - ✓ storage_space
+2026-03-01 17:26:01 - system_validator - INFO - ✓ time_sync
+2026-03-01 17:26:01 - system_validator - INFO - System validation passed
+2026-03-01 17:26:01 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 17:26:01 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 17:26:01 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/2.8 1.0s
+2026-03-01 17:26:01 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/8.0 0.5s
+2026-03-01 17:26:01 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 17:26:01 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 17:26:01 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 17:26:01 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 17:26:01 - system_validator - INFO - ✓ action_sequence
+2026-03-01 17:26:01 - system_validator - INFO - ✓ camera_settings
+2026-03-01 17:26:01 - system_validator - INFO - Configuration validation passed
+2026-03-01 17:26:01 - root - INFO - Initializing camera system...
+2026-03-01 17:26:01 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 17:26:01 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 17:26:01 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 17:45:12 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 17:45:12 - root - INFO - Log file: eclipse.log
+2026-03-01 17:45:12 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 17:45:12 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 17:45:12 - root - INFO - Loading configuration...
+2026-03-01 17:45:12 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 17:45:12 - root - INFO - Test mode: DISABLED
+2026-03-01 17:45:12 - system_validator - INFO - Starting system validation...
+2026-03-01 17:45:12 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 17:45:12 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 17:45:12 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 17:45:12 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 17:45:12 - system_validator - INFO - ✓ python_version
+2026-03-01 17:45:12 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 17:45:12 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 17:45:12 - system_validator - INFO - ✓ storage_space
+2026-03-01 17:45:12 - system_validator - INFO - ✓ time_sync
+2026-03-01 17:45:12 - system_validator - INFO - System validation passed
+2026-03-01 17:45:12 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 17:45:12 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 17:45:12 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/2.8 1.0s
+2026-03-01 17:45:12 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/8.0 0.5s
+2026-03-01 17:45:12 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 17:45:12 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 17:45:12 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 17:45:12 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 17:45:12 - system_validator - INFO - ✓ action_sequence
+2026-03-01 17:45:12 - system_validator - INFO - ✓ camera_settings
+2026-03-01 17:45:12 - system_validator - INFO - Configuration validation passed
+2026-03-01 17:45:12 - root - INFO - Initializing camera system...
+2026-03-01 17:45:12 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 17:45:12 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 17:45:12 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 17:48:54 - root - INFO - Logging initialized at INFO level
+2026-03-01 17:48:54 - root - INFO - Log file: eclipse.log
+2026-03-01 17:48:54 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 17:48:54 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 17:48:54 - root - INFO - Loading configuration...
+2026-03-01 17:48:54 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 17:48:54 - root - INFO - Test mode: ENABLED
+2026-03-01 17:48:54 - system_validator - INFO - Starting system validation...
+2026-03-01 17:48:54 - system_validator - INFO - ✓ python_version
+2026-03-01 17:48:54 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 17:48:54 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 17:48:54 - system_validator - INFO - ✓ storage_space
+2026-03-01 17:48:54 - system_validator - INFO - ✓ time_sync
+2026-03-01 17:48:54 - system_validator - INFO - System validation passed
+2026-03-01 17:48:54 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 17:48:54 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 17:48:54 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 17:48:54 - system_validator - INFO - ✓ action_sequence
+2026-03-01 17:48:54 - system_validator - INFO - ✓ camera_settings
+2026-03-01 17:48:54 - system_validator - INFO - Configuration validation passed
+2026-03-01 17:48:54 - root - INFO - Initializing camera system...
+2026-03-01 17:48:54 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 17:48:54 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 17:48:54 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 17:50:10 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 17:50:10 - root - INFO - Log file: eclipse.log
+2026-03-01 17:50:10 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 17:50:10 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 17:50:10 - root - INFO - Loading configuration...
+2026-03-01 17:50:10 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 17:50:10 - root - INFO - Test mode: ENABLED
+2026-03-01 17:50:10 - system_validator - INFO - Starting system validation...
+2026-03-01 17:50:10 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 17:50:10 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 17:50:10 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 17:50:10 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 17:50:10 - system_validator - INFO - ✓ python_version
+2026-03-01 17:50:10 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 17:50:10 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 17:50:10 - system_validator - INFO - ✓ storage_space
+2026-03-01 17:50:10 - system_validator - INFO - ✓ time_sync
+2026-03-01 17:50:10 - system_validator - INFO - System validation passed
+2026-03-01 17:50:10 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 17:50:10 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 17:50:10 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/2.8 1.0s
+2026-03-01 17:50:10 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/8.0 0.5s
+2026-03-01 17:50:10 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 17:50:10 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 17:50:10 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 17:50:10 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 17:50:10 - system_validator - INFO - ✓ action_sequence
+2026-03-01 17:50:10 - system_validator - INFO - ✓ camera_settings
+2026-03-01 17:50:10 - system_validator - INFO - Configuration validation passed
+2026-03-01 17:50:10 - root - INFO - Initializing camera system...
+2026-03-01 17:50:10 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 17:50:10 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 17:50:10 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 17:51:00 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 17:51:00 - root - INFO - Log file: eclipse.log
+2026-03-01 17:51:00 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 17:51:00 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 17:51:00 - root - INFO - Loading configuration...
+2026-03-01 17:51:00 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 17:51:00 - root - INFO - Test mode: ENABLED
+2026-03-01 17:51:00 - system_validator - INFO - Starting system validation...
+2026-03-01 17:51:00 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 17:51:00 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 17:51:00 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 17:51:00 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 17:51:00 - system_validator - INFO - ✓ python_version
+2026-03-01 17:51:00 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 17:51:00 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 17:51:00 - system_validator - INFO - ✓ storage_space
+2026-03-01 17:51:00 - system_validator - INFO - ✓ time_sync
+2026-03-01 17:51:00 - system_validator - INFO - System validation passed
+2026-03-01 17:51:00 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 17:51:00 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 17:51:00 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/2.8 1.0s
+2026-03-01 17:51:00 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/8.0 0.5s
+2026-03-01 17:51:00 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 17:51:00 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 17:51:00 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 17:51:00 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 17:51:00 - system_validator - INFO - ✓ action_sequence
+2026-03-01 17:51:00 - system_validator - INFO - ✓ camera_settings
+2026-03-01 17:51:00 - system_validator - INFO - Configuration validation passed
+2026-03-01 17:51:00 - root - INFO - Initializing camera system...
+2026-03-01 17:51:00 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 17:51:00 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 17:51:00 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 18:06:55 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 18:06:55 - root - INFO - Log file: eclipse.log
+2026-03-01 18:06:55 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 18:06:55 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 18:06:55 - root - INFO - Loading configuration...
+2026-03-01 18:06:55 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 18:06:55 - root - INFO - Test mode: ENABLED
+2026-03-01 18:06:55 - system_validator - INFO - Starting system validation...
+2026-03-01 18:06:55 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 18:06:55 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 18:06:55 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 18:06:55 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 18:06:55 - system_validator - INFO - ✓ python_version
+2026-03-01 18:06:55 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 18:06:55 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 18:06:55 - system_validator - INFO - ✓ storage_space
+2026-03-01 18:06:55 - system_validator - INFO - ✓ time_sync
+2026-03-01 18:06:55 - system_validator - INFO - System validation passed
+2026-03-01 18:06:55 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 18:06:55 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 18:06:55 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/2.8 1.0s
+2026-03-01 18:06:55 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/8.0 0.5s
+2026-03-01 18:06:55 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 18:06:55 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 18:06:55 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 18:06:55 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 18:06:55 - system_validator - INFO - ✓ action_sequence
+2026-03-01 18:06:55 - system_validator - INFO - ✓ camera_settings
+2026-03-01 18:06:55 - system_validator - INFO - Configuration validation passed
+2026-03-01 18:06:55 - root - INFO - Initializing camera system...
+2026-03-01 18:06:55 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 18:06:55 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 18:06:55 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 19:08:13 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 19:08:13 - root - INFO - Log file: eclipse.log
+2026-03-01 19:08:13 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 19:08:13 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 19:08:13 - root - INFO - Loading configuration...
+2026-03-01 19:08:13 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 19:08:13 - root - INFO - Test mode: ENABLED
+2026-03-01 19:08:13 - system_validator - INFO - Starting system validation...
+2026-03-01 19:08:13 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 19:08:13 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 19:08:13 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 19:08:13 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 19:08:13 - system_validator - INFO - ✓ python_version
+2026-03-01 19:08:13 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 19:08:13 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 19:08:13 - system_validator - INFO - ✓ storage_space
+2026-03-01 19:08:13 - system_validator - INFO - ✓ time_sync
+2026-03-01 19:08:13 - system_validator - INFO - System validation passed
+2026-03-01 19:08:13 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 19:08:13 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 19:08:13 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/2.8 1.0s
+2026-03-01 19:08:13 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/8.0 0.5s
+2026-03-01 19:08:13 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 19:08:13 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 19:08:13 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 19:08:13 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 19:08:13 - system_validator - INFO - ✓ action_sequence
+2026-03-01 19:08:13 - system_validator - INFO - ✓ camera_settings
+2026-03-01 19:08:13 - system_validator - INFO - Configuration validation passed
+2026-03-01 19:08:13 - root - INFO - Initializing camera system...
+2026-03-01 19:08:13 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 19:08:13 - multi_camera_manager - DEBUG - Raw camera list: camera_list
+2026-03-01 19:08:13 - multi_camera_manager - ERROR - Error during camera discovery: 'typing.TypeAliasType' object is not iterable
+2026-03-01 19:08:13 - root - ERROR - No cameras detected. Please check USB connections.
+2026-03-01 19:12:25 - root - INFO - Logging initialized at DEBUG level
+2026-03-01 19:12:25 - root - INFO - Log file: eclipse.log
+2026-03-01 19:12:25 - root - INFO - === Eclipse Photography Controller v3.0.0 ===
+2026-03-01 19:12:25 - root - INFO - Initializing with config: config_eclipse.txt
+2026-03-01 19:12:25 - root - INFO - Loading configuration...
+2026-03-01 19:12:25 - root - INFO - Configuration loaded: 5 actions
+2026-03-01 19:12:25 - root - INFO - Test mode: ENABLED
+2026-03-01 19:12:25 - system_validator - INFO - Starting system validation...
+2026-03-01 19:12:25 - system_validator - DEBUG - Python 3.13 is compatible
+2026-03-01 19:12:25 - system_validator - DEBUG - gphoto2 Python module available
+2026-03-01 19:12:25 - system_validator - DEBUG - Found camera udev rules: [PosixPath('/etc/udev/rules.d/99-canon-cameras.rules'), PosixPath('/etc/udev/rules.d/99-canon-cameras.rules')]
+2026-03-01 19:12:25 - system_validator - DEBUG - Storage space available: 5906MB
+2026-03-01 19:12:25 - system_validator - INFO - ✓ python_version
+2026-03-01 19:12:25 - system_validator - INFO - ✓ gphoto2_availability
+2026-03-01 19:12:25 - system_validator - INFO - ✓ usb_permissions
+2026-03-01 19:12:25 - system_validator - INFO - ✓ storage_space
+2026-03-01 19:12:25 - system_validator - INFO - ✓ time_sync
+2026-03-01 19:12:25 - system_validator - INFO - System validation passed
+2026-03-01 19:12:25 - system_validator - INFO - Validating eclipse configuration...
+2026-03-01 19:12:25 - time_calculator - INFO - Eclipse sequence valid, totality duration: 2m 9s
+2026-03-01 19:12:25 - system_validator - DEBUG - Action 1: Photo at Max - 00:00:10 with ISO 1600 f/2.8 1.0s
+2026-03-01 19:12:25 - system_validator - DEBUG - Action 2: Photo at C2 + 00:00:30 with ISO 800 f/8.0 0.5s
+2026-03-01 19:12:25 - system_validator - DEBUG - Action 3: Loop from C2 + 00:00:10 to C2 + 00:01:50 every 5.0s with ISO 400 f/8.0 0.008s
+2026-03-01 19:12:25 - system_validator - DEBUG - Action 4: Interval: 10 photos from Max - 00:01:00 to Max + 00:01:00 with ISO 200 f/11.0 0.004s
+2026-03-01 19:12:25 - system_validator - DEBUG - Action 5: Photo at C4 + 00:02:00 with ISO 800 f/8.0 0.016s
+2026-03-01 19:12:25 - system_validator - INFO - ✓ eclipse_timings
+2026-03-01 19:12:25 - system_validator - INFO - ✓ action_sequence
+2026-03-01 19:12:25 - system_validator - INFO - ✓ camera_settings
+2026-03-01 19:12:25 - system_validator - INFO - Configuration validation passed
+2026-03-01 19:12:25 - root - INFO - Initializing camera system...
+2026-03-01 19:12:25 - multi_camera_manager - INFO - Discovering cameras...
+2026-03-01 19:12:25 - multi_camera_manager - DEBUG - Camera list type: <class 'list'>
+2026-03-01 19:12:25 - multi_camera_manager - DEBUG - Raw camera list: [1, <Swig Object of type '_CameraList *' at 0x7f88f98330>]
+2026-03-01 19:12:25 - multi_camera_manager - ERROR - Error during camera discovery: cannot unpack non-iterable int object
+2026-03-01 19:12:25 - root - ERROR - No cameras detected. Please check USB connections.

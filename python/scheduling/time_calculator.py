@@ -12,7 +12,7 @@ import time as time_module
 import logging
 from datetime import datetime, time
 
-from ..config.eclipse_config import EclipseTimings
+from config.eclipse_config import EclipseTimings
 
 
 class TimeCalculator:

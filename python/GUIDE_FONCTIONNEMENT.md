@@ -127,7 +127,7 @@ python main.py config_eclipse.txt --strict-mode
 ```bash
 # 1. État des appareils
 gphoto2 --auto-detect
-python -c "from hardware import MultiCameraManager; mgr = MultiCameraManager(); print(mgr.get_status_all())"
+python -c "from hardware import MultiCameraManager; mgr = MultiCameraManager(); print(mgr.get_all_status())"
 
 # 2. Espace disque
 df -h /home/pi/eclipse_photos

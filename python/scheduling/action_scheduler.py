@@ -12,9 +12,9 @@ from typing import Dict, Any
 
 from .time_calculator import TimeCalculator
 from .action_types import create_action, ActionType
-from ..config.eclipse_config import ActionConfig, CameraSettings
-from ..hardware.multi_camera_manager import MultiCameraManager
-from ..hardware.camera_controller import format_gphoto2_aperture, format_gphoto2_shutter
+from config.eclipse_config import ActionConfig, CameraSettings
+from hardware.multi_camera_manager import MultiCameraManager
+from hardware.camera_controller import format_gphoto2_aperture, format_gphoto2_shutter
 
 
 class ActionScheduler:

@@ -6,7 +6,7 @@ Defines the different types of photographic actions that can be scheduled.
 
 from enum import Enum
 from abc import ABC, abstractmethod
-from ..config.eclipse_config import ActionConfig
+from config.eclipse_config import ActionConfig
 
 
 

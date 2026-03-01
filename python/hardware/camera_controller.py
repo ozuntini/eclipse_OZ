@@ -71,7 +71,7 @@ except ImportError:
     
     gp = MockGPhoto2()
 
-from ..config.eclipse_config import CameraSettings, CameraStatus
+from config.eclipse_config import CameraSettings, CameraStatus
 
 
 class CameraController:

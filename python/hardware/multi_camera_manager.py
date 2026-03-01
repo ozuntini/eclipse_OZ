@@ -20,7 +20,7 @@ except ImportError:
     from .camera_controller import gp
 
 from .camera_controller import CameraController
-from ..config.eclipse_config import CameraSettings, CameraStatus
+from config.eclipse_config import CameraSettings, CameraStatus
 
 
 class MultiCameraManager:
@@ -59,7 +59,7 @@ class MultiCameraManager:
                               ("Mock Canon Camera 2", "usb:001,003")]
             else:
                 camera_list = gp.gp_camera_autodetect()
-            
+
             discovered_cameras = []
             
             for index, (name, address) in enumerate(camera_list):
